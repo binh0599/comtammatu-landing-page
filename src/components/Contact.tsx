@@ -1,24 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
+
+const emptySubscribe = () => () => {};
+function useIsMounted() {
+    return useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
 
 export default function Contact() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
+    const isMounted = useIsMounted();
 
     useEffect(() => {
-        setIsMounted(true);
         const checkOpenStatus = () => {
             const now = new Date();
             // Convert to UTC+7 (Vietnam Time)
             const vietnamTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" }));
             const currentHour = vietnamTime.getHours();
             // Open between 6:00 and 22:00
-            if (currentHour >= 6 && currentHour < 22) {
-                setIsOpen(true);
-            } else {
-                setIsOpen(false);
-            }
+            setIsOpen(currentHour >= 6 && currentHour < 22);
         };
 
         checkOpenStatus();

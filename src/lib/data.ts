@@ -139,14 +139,14 @@ export const toppingOptions: ToppingOption[] = [
 export const galleryImages: GalleryImage[] = [
     {
         src: "/images/space-1.webp",
-        alt: "Không gian 1",
+        alt: "Toàn cảnh không gian quán Cơm tấm Má Tư phong cách Indochine",
         span: "col-span-2 row-span-2",
     },
-    { src: "/images/space-2.webp", alt: "Không gian 2", span: "" },
-    { src: "/images/space-3.webp", alt: "Không gian 3", span: "" },
-    { src: "/images/space-5.webp", alt: "Không gian 5", span: "" },
-    { src: "/images/space-6.webp", alt: "Không gian 6", span: "" },
-    { src: "/images/space-7.webp", alt: "Không gian 7", span: "col-span-2" },
+    { src: "/images/space-2.webp", alt: "Khu vực bàn ăn với đèn lồng đỏ truyền thống", span: "" },
+    { src: "/images/space-3.webp", alt: "Góc trang trí nội thất gỗ ấm cúng", span: "" },
+    { src: "/images/space-5.webp", alt: "Không gian ngoài trời xanh mát", span: "" },
+    { src: "/images/space-6.webp", alt: "Chi tiết trang trí Indochine hoài cổ", span: "" },
+    { src: "/images/space-7.webp", alt: "Khu vực quầy phục vụ và bếp mở", span: "col-span-2" },
 ];
 
 // ── Testimonials Data ──────────────────────

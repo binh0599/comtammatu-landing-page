@@ -1,5 +1,3 @@
-"use client";
-
 import { testimonials } from "@/lib/data";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
 

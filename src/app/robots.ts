@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "https://comtammatuu.vn/sitemap.xml",
+        sitemap: "https://comtammatu.com/sitemap.xml",
     };
 }
