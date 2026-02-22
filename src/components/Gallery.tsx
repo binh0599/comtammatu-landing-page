@@ -60,6 +60,7 @@ export default function Gallery({ onImageClick }: GalleryProps) {
                                     src={img.src}
                                     alt={img.alt}
                                     fill
+                                    sizes={img.span.includes("col-span-2") ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">

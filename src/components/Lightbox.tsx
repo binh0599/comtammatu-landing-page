@@ -40,6 +40,7 @@ export default function Lightbox({ src, onClose }: LightboxProps) {
                     src={src}
                     alt="Hình ảnh không gian phóng to"
                     fill
+                    sizes="(max-width: 768px) 100vw, 80vw"
                     className="object-contain"
                 />
             </div>

@@ -35,6 +35,7 @@ export default function Navbar() {
                                 src="/images/logo.webp"
                                 alt="Logo Cơm tấm Má Tư"
                                 fill
+                                sizes="44px"
                                 className="object-cover"
                             />
                         </div>

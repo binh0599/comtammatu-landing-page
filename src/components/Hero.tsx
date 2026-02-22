@@ -13,6 +13,7 @@ export default function Hero() {
                     src="/images/space-1.webp"
                     alt="Không gian quán Cơm tấm Má Tư"
                     fill
+                    sizes="100vw"
                     className="object-cover scale-105"
                     priority
                 />
@@ -46,7 +47,9 @@ export default function Hero() {
                             src="/images/logo.webp"
                             alt="Logo Cơm tấm Má Tư"
                             fill
+                            sizes="144px"
                             className="object-cover"
+                            priority
                         />
                     </div>
                 </div>

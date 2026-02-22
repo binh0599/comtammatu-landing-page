@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Counter from "@/components/ui/Counter";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
@@ -42,8 +40,9 @@ export default function About() {
                                 <div className="relative h-[200px] sm:h-[300px] md:h-[510px] rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
                                         src="/images/space-2.webp"
-                                        alt="Không gian quán Cơm tấm Má Tư"
+                                        alt="Không gian quán Cơm tấm Má Tư với phong cách Indochine ấm cúng"
                                         fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                         className="object-cover"
                                     />
                                     {/* Overlay with stats */}
