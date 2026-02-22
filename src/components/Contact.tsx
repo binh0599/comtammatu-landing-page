@@ -10,7 +10,9 @@ export default function Contact() {
         setIsMounted(true);
         const checkOpenStatus = () => {
             const now = new Date();
-            const currentHour = now.getHours();
+            // Convert to UTC+7 (Vietnam Time)
+            const vietnamTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" }));
+            const currentHour = vietnamTime.getHours();
             // Open between 6:00 and 22:00
             if (currentHour >= 6 && currentHour < 22) {
                 setIsOpen(true);
