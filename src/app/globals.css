@@ -1,0 +1,644 @@
+@import "tailwindcss";
+
+:root {
+  /* Indochine Color Palette - Cơm tấm Má Tư */
+  --color-do-co: #8B0000;
+  --color-do-nhat: #B22222;
+  --color-nau-go: #5D4037;
+  --color-nau-dam: #3E2723;
+  --color-vang-kem: #D4A574;
+  --color-vang-nhat: #F5E6D3;
+  --color-xanh-la: #2E7D32;
+  --color-trang: #FAFAFA;
+  --color-den: #1A1A1A;
+  --color-den-nhat: #2D2D2D;
+
+  --background: #FAFAFA;
+  --foreground: #1A1A1A;
+}
+
+@theme inline {
+  --color-do-co: var(--color-do-co);
+  --color-do-nhat: var(--color-do-nhat);
+  --color-nau-go: var(--color-nau-go);
+  --color-nau-dam: var(--color-nau-dam);
+  --color-vang-kem: var(--color-vang-kem);
+  --color-vang-nhat: var(--color-vang-nhat);
+  --color-xanh-la: var(--color-xanh-la);
+  --color-trang: var(--color-trang);
+  --color-den: var(--color-den);
+  --color-den-nhat: var(--color-den-nhat);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-mulish);
+  --font-serif: var(--font-philosopher);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* ============ ANIMATIONS ============ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(139, 0, 0, 0.6);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  75% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    border-color: rgba(212, 165, 116, 0.3);
+  }
+
+  50% {
+    border-color: rgba(212, 165, 116, 0.8);
+  }
+}
+
+@keyframes widthExpand {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 80px;
+  }
+}
+
+/* Physics-based animation for Toppings */
+@keyframes popDrop {
+  0% {
+    opacity: 0;
+    transform: scale(1.4) translateY(-40px);
+    filter: drop-shadow(0 40px 30px rgba(0, 0, 0, 0.2));
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(0.95) translateY(5px);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
+  }
+
+  80% {
+    transform: scale(1.02) translateY(-2px);
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    /* Giữ lại drop shadow thật đậm ở cuối */
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.65));
+  }
+}
+
+/* Animation utility classes */
+.animate-pop-drop {
+  animation: popDrop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out both;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s ease-out both;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out both;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--color-vang-kem) 0%, #fff 50%, var(--color-vang-kem) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-scroll-down {
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+.animate-border-glow {
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+.animate-width-expand {
+  animation: widthExpand 1s ease-out both;
+}
+
+/* Animation delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* ============ GLASSMORPHISM ============ */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-dark {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ============ DECORATIVE ============ */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-vang-kem), #fff, var(--color-vang-kem));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, var(--color-do-co), var(--color-vang-kem));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.decorative-line {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-do-co), var(--color-vang-kem));
+  border-radius: 2px;
+}
+
+.decorative-line-center {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-do-co), var(--color-vang-kem));
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+/* Vietnamese pattern divider */
+.pattern-divider {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 L10 0 L20 6 L30 0 L40 6 L30 12 L20 6 L10 12 Z' fill='none' stroke='%23D4A574' stroke-width='1' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 12px;
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-den);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-do-co), var(--color-vang-kem));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-do-co);
+}
+
+/* Ẩn scrollbar cho class cụ thể */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE và Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+/* ============ SECTION TRANSITIONS ============ */
+
+/* Base hidden state */
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Variant: fade up (default) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(50px);
+  will-change: opacity, transform;
+}
+
+/* Variant: slide from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  will-change: opacity, transform;
+}
+
+/* Variant: slide from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  will-change: opacity, transform;
+}
+
+/* Variant: scale up */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  will-change: opacity, transform;
+}
+
+/* Variant: fade only */
+.reveal-fade {
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Visible state for all variants */
+.reveal.visible,
+.reveal-up.visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-scale.visible,
+.reveal-fade.visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Stagger delays for child elements within a revealed block */
+.stagger>*:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.stagger>*:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.stagger>*:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.stagger>*:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.stagger>*:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+.stagger>*:nth-child(6) {
+  transition-delay: 0.5s;
+}
+
+/* Section-level custom delays */
+.reveal-delay-1 {
+  transition-delay: 0.1s !important;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s !important;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s !important;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s !important;
+}
+
+.reveal-delay-5 {
+  transition-delay: 0.55s !important;
+}
+
+.reveal-delay-6 {
+  transition-delay: 0.7s !important;
+}
+
+/* ── Legacy alias so existing .section-reveal still works ── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Wave dividers between sections ── */
+.wave-divider {
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -2px;
+  /* prevent 1px gap */
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+}
+
+/* ============ HOVER EFFECTS ============ */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
+}
+
+.img-zoom {
+  transition: transform 0.6s ease;
+}
+
+.img-zoom:hover {
+  transform: scale(1.08);
+}
+
+/* ============ CARD STYLES ============ */
+.card-premium {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-premium:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+}
+
+/* ============ BUTTON STYLES ============ */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-do-co), var(--color-do-nhat));
+  color: white;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(139, 0, 0, 0.4);
+}
+
+.btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--color-nau-go);
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* ============ NAVBAR ============ */
+.navbar-scrolled {
+  background: rgba(26, 26, 26, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ============ RESPONSIVE HELPERS ============ */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem !important;
+    line-height: 1.1 !important;
+  }
+}
