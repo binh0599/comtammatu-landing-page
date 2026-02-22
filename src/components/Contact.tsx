@@ -1,4 +1,29 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 export default function Contact() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        const checkOpenStatus = () => {
+            const now = new Date();
+            const currentHour = now.getHours();
+            // Open between 6:00 and 22:00
+            if (currentHour >= 6 && currentHour < 22) {
+                setIsOpen(true);
+            } else {
+                setIsOpen(false);
+            }
+        };
+
+        checkOpenStatus();
+        const interval = setInterval(checkOpenStatus, 60000); // Check every minute
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div
             id="contact"
@@ -125,9 +150,15 @@ export default function Contact() {
                                             Giờ mở cửa
                                         </p>
                                         <p className="text-gray-500 text-[13px] md:text-base">6:00 - 22:00, hàng ngày</p>
-                                        <p className="text-xanh-la text-xs md:text-sm font-medium mt-0.5 md:mt-1">
-                                            ● Đang mở cửa
-                                        </p>
+                                        {isMounted ? (
+                                            <p className={`text-xs md:text-sm font-medium mt-0.5 md:mt-1 ${isOpen ? 'text-xanh-la' : 'text-red-500'}`}>
+                                                ● {isOpen ? 'Đang mở cửa' : 'Đã đóng cửa'}
+                                            </p>
+                                        ) : (
+                                            <p className="text-gray-400 opacity-0 text-xs md:text-sm font-medium mt-0.5 md:mt-1">
+                                                ● Đang tải...
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
 
