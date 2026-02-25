@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Philosopher, Mulish } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const philosopher = Philosopher({
@@ -115,6 +116,7 @@ export default function RootLayout({
         className={`${philosopher.variable} ${mulish.variable} font-sans antialiased`}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
