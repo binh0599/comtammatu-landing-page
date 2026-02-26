@@ -13,6 +13,7 @@ export interface MenuItemEntry {
 
 export interface MenuGroup {
     title: string;
+    description?: string;
     img: string | null;
     basePrice: string | null;
     items: MenuItemEntry[];
@@ -61,28 +62,31 @@ export interface Testimonial {
 export const menuGroups: MenuGroup[] = [
     {
         title: "🍖 Cơm Sườn Cốt Lết",
+        description: "Sườn mềm nướng than hoa thơm lừng bề mặt xém cạnh, chuẩn vị Sài Thành.",
         img: "/images/com_suon_cot_let.webp",
         basePrice: "35.000₫",
         items: [
             { name: "+ Bì", price: "42.000₫" },
             { name: "+ Chả", price: "42.000₫" },
             { name: "+ Trứng ốp la", price: "40.000₫" },
-            { name: "+ Bì, Chả, Trứng", price: "54.000₫", tag: "Full" },
+            // { name: "+ Bì, Chả, Trứng", price: "54.000₫", tag: "Full" },
         ],
     },
     {
         title: "🥩 Cơm Sườn Cây",
+        description: "Bẹ sườn nguyên cây thịt dày, cắn ngập vị đậm đà cùng lớp mỡ béo ngậy xen kẽ.",
         img: "/images/com_suon_cay.webp",
         basePrice: "40.000₫",
         items: [
             { name: "+ Bì", price: "47.000₫" },
             { name: "+ Chả", price: "47.000₫" },
             { name: "+ Trứng ốp la", price: "45.000₫" },
-            { name: "+ Bì, Chả, Trứng", price: "59.000₫", tag: "Full" },
+            // { name: "+ Bì, Chả, Trứng", price: "59.000₫", tag: "Full" },
         ],
     },
     {
         title: "🍚 Cơm Tấm",
+        description: "Hạt tấm tơi xốp truyền thống rưới mỡ hành, hòa quyện cùng nước mắm chua ngọt.",
         img: null,
         basePrice: null,
         items: [
@@ -178,8 +182,9 @@ export const testimonials: Testimonial[] = [
 // ── Nav Links ─────────────────────────────
 
 export const navLinks = [
-    { label: "Về chúng tôi", href: "#about" },
-    { label: "Thực đơn", href: "#menu" },
-    { label: "Không gian", href: "#space" },
-    { label: "Liên hệ", href: "#contact" },
+    { label: "Câu chuyện", href: "#cau-chuyen" },
+    { label: "Thực đơn", href: "#thuc-don" },
+    { label: "Không gian", href: "#khong-gian" },
+    { label: "Cảm nhận", href: "#cam-nhan" },
+    { label: "Liên hệ", href: "#footer" },
 ];

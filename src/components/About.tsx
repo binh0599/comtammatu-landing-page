@@ -1,120 +1,92 @@
 import Image from "next/image";
-import Counter from "@/components/ui/Counter";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
 
 export default function About() {
     return (
         <div
-            id="about"
-            className="h-[100dvh] md:h-auto w-full flex-shrink-0 md:min-h-[100dvh] snap-start snap-always flex flex-col relative"
+            id="cau-chuyen"
+            className="h-[100dvh] w-full flex-shrink-0 snap-start snap-always flex flex-col relative bg-[#FDF8F0]"
         >
-            {/* Wave: Hero → About */}
-            <div className="wave-divider bg-trang flex-shrink-0">
-                <svg
-                    viewBox="0 0 1440 80"
-                    xmlns="http://www.w3.org/2000/svg"
-                    preserveAspectRatio="none"
-                >
-                    <path
-                        d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
-                        fill="#FAFAFA"
-                    />
-                </svg>
-            </div>
+            {/* About Section - Super Clean Editorial Layout */}
+            <section className="flex-1 min-h-0 relative overflow-hidden flex flex-col justify-center">
+                {/* Vintage Paper texture overlay */}
+                <div className="absolute inset-0 opacity-40 mix-blend-multiply pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cream-paper.png')" }}></div>
 
-            {/* About Section */}
-            <section className="flex-1 pt-16 pb-4 md:pt-12 md:pb-16 bg-trang relative overflow-hidden flex flex-col justify-center">
-                {/* Decorative background */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-vang-kem/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-do-co/3 rounded-full translate-y-1/2 -translate-x-1/2" />
+                <div className="flex-1 min-h-0 container mx-auto px-6 md:px-12 lg:px-20 max-w-6xl relative z-10 flex flex-col justify-center">
 
-                <div className="container mx-auto px-4 max-w-7xl relative z-10 h-full md:h-auto flex flex-col md:block min-h-0">
-                    <div className="flex-1 md:flex-none grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-16 items-center overflow-y-auto md:overflow-visible scrollbar-hide pb-16 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
-                        {/* Image Side */}
-                        <div className="reveal-left">
-                            <div className="relative">
-                                {/* Decorative frame */}
-                                <div className="absolute -top-4 -left-4 w-full h-full border-2 border-vang-kem/30 rounded-2xl" />
-                                <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-do-co/20 rounded-2xl" />
+                    <div className="relative flex flex-col lg:flex-row items-center gap-6 md:gap-12 lg:gap-24 min-h-0">
+                        {/* LEFT: Arch Image Composite (Hidden on very small mobile to save space, visible sm+) */}
+                        <div className="w-full lg:w-5/12 relative reveal-left z-20 hidden sm:block h-[35vh] lg:h-[55vh] lg:min-h-[450px]">
+                            <div className="relative w-full h-full max-w-sm lg:max-w-md mx-auto flex items-end justify-center">
 
-                                <div className="relative h-[200px] sm:h-[300px] md:h-[510px] rounded-2xl overflow-hidden shadow-2xl">
+                                {/* The Arch Image Mask */}
+                                <div className="relative w-4/5 h-full overflow-hidden shadow-2xl border-[4px] border-[#cb9b51]/60" style={{ borderRadius: '400px 400px 0 0' }}>
                                     <Image
                                         src="/images/space-2.webp"
-                                        alt="Không gian quán Cơm tấm Má Tư với phong cách Indochine ấm cúng"
+                                        alt="Không gian Cơm tấm Má Tư"
                                         fill
-                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        sizes="(max-width: 1024px) 50vw, 30vw"
                                         className="object-cover"
                                     />
-                                    {/* Overlay with stats */}
-                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                                        <p className="text-vang-kem text-sm tracking-wider uppercase">
-                                            Từ năm 2015
-                                        </p>
-                                        <p className="text-trang font-serif text-2xl">
-                                            Hương vị đặc trưng Sài Gòn
-                                        </p>
+                                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent"></div>
+                                    <div className="absolute bottom-6 left-0 w-full text-center">
+                                        <p className="font-serif text-white/95 text-xl tracking-widest drop-shadow-md">Góc nhỏ Sài Gòn</p>
+                                        <p className="font-sans text-vang-kem text-xs tracking-[0.2em] uppercase mt-2">Hương vị ký ức</p>
                                     </div>
                                 </div>
 
-                                {/* Floating badge */}
-                                <div className="absolute -top-3 -right-3 md:-top-6 md:-right-6 bg-do-co text-trang w-16 h-16 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center shadow-xl animate-float">
-                                    <span className="font-serif text-xl md:text-2xl font-bold">10+</span>
-                                    <span className="text-[10px] md:text-xs">Năm</span>
+                                {/* Floating 30 Years Badge */}
+                                <div className="absolute top-[10%] -right-4 md:-right-8 w-24 h-24 md:w-28 md:h-28 bg-[#8B0000] rounded-full flex flex-col items-center justify-center shadow-xl border-[2px] border-[#FAF6F0] z-30">
+                                    <p className="font-serif text-[#cb9b51] text-3xl md:text-4xl font-bold leading-none">30</p>
+                                    <p className="text-white/90 text-[8px] md:text-[9px] uppercase tracking-widest leading-[1.2] mt-1 text-center">Năm<br />Gia Truyền</p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Content Side */}
-                        <div className="reveal-right">
-                            <p className="text-do-co font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-1 md:mb-3">
-                                Về chúng tôi
-                            </p>
-                            <h2 className="font-serif text-2xl md:text-5xl mb-3 md:mb-6 leading-tight">
-                                <span className="text-nau-dam">Câu chuyện </span>
-                                <span className="text-do-co">Má Tư</span>
-                            </h2>
-                            <div className="decorative-line mb-4 md:mb-8" />
+                        {/* RIGHT: Typography / Editorial Text Container */}
+                        <div className="w-full lg:w-7/12 flex flex-col justify-center reveal-right z-10 shrink min-h-0 text-left">
 
-                            <p className="text-gray-600 leading-snug md:leading-relaxed mb-2 md:mb-5 text-[13px] md:text-lg">
-                                Cơm tấm Má Tư ra đời với mong muốn mang đến hương vị cơm tấm
-                                truyền thống Việt Nam chuẩn vị ngày xưa. Từ những hạt cơm tấm
-                                thơm lúa, lát thịt nạc rim giòn tan, đến chả trứng vàng ươm -
-                                mỗi món ăn đều được chế biến với tình yêu và sự tỉ mỉ.
-                            </p>
-                            <p className="text-gray-600 leading-snug md:leading-relaxed mb-4 md:mb-10 text-[13px] md:text-lg">
-                                Không gian quán được thiết kế theo phong cách Indochine hoài
-                                cổ, với gam màu nâu gỗ ấm áp, đèn lồng đỏ ruột mồi và những
-                                bức tranh gỗ Việt Nam. Đến đây, bạn không chỉ thưởng thức bữa
-                                cơm, mà còn được hoài niệm về một thời đã qua.
-                            </p>
+                            {/* Giant Watermark Background Text (Optional, keep it subtle) */}
+                            <div className="absolute -top-10 -left-10 text-[100px] md:text-[180px] text-vang-kem/10 font-serif leading-none italic select-none pointer-events-none z-0">
+                                Sài Gòn
+                            </div>
 
-                            {/* Stats */}
-                            <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-2 md:mt-0">
-                                <div className="text-center p-2 px-1 md:p-4 rounded-xl bg-vang-nhat/50">
-                                    <p className="font-serif text-xl md:text-4xl text-do-co font-bold">
-                                        <Counter end={10} suffix="+" />
+                            <div className="relative z-10 flex flex-col min-h-0">
+                                {/* Eyebrow / Subhead */}
+                                <div className="flex items-center gap-3 mb-2 md:mb-4">
+                                    <div className="w-10 h-[1px] bg-[#cb9b51]"></div>
+                                    <p className="text-[#8B0000] font-bold tracking-[0.25em] uppercase text-[10px] md:text-sm">
+                                        Câu Chuyện
                                     </p>
-                                    <p className="text-gray-500 text-[11px] md:text-sm mt-0.5 md:mt-1">Kinh nghiệm</p>
                                 </div>
-                                <div className="text-center p-2 px-1 md:p-4 rounded-xl bg-vang-nhat/50">
-                                    <p className="font-serif text-xl md:text-4xl text-do-co font-bold">
-                                        <Counter end={50} suffix="K+" />
+
+                                {/* Main Title */}
+                                <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#2a231d] mb-3 md:mb-6 leading-[1.05] drop-shadow-sm">
+                                    Hơn Cả Một <br />
+                                    <span className="block text-right text-[#8B0000] italic font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Đĩa Cơm Tấm</span>
+                                </h2>
+
+                                {/* Editorial Paragraphs */}
+                                <div className="space-y-3 md:space-y-4 text-[#4a4238] font-sans text-xs md:text-sm leading-snug md:leading-relaxed text-justify max-w-lg shrink">
+                                    <p>
+                                        Sinh ra từ gian bếp nhỏ vương màu khói lửa Sài Gòn xưa, <strong className="text-[#8B0000] font-semibold">Cơm Tấm Má Tư</strong> không đơn thuần là một món ăn, mà là sợi dây vô hình kết nối quá khứ và hiện tại. Lửa lò nướng sườn của Má chưa bao giờ tắt, vẫn vẹn nguyên công thức ướp bí truyền suốt ba thập kỷ.
                                     </p>
-                                    <p className="text-gray-500 text-[11px] md:text-sm mt-0.5 md:mt-1">Khách hàng</p>
-                                </div>
-                                <div className="text-center p-2 px-1 md:p-4 rounded-xl bg-vang-nhat/50">
-                                    <p className="font-serif text-xl md:text-4xl text-do-co font-bold">
-                                        5⭐
+                                    <p>
+                                        Từng hạt tấm tơi xốp quấn quýt bên miếng sườn nướng than hoa cháy cạnh, tươm mỡ vàng óng. Miếng chả trứng chưng thịt đẫm vị, hòa quyện cùng thìa nước mắm chua ngọt sánh dẻo pha theo một <span className="italic font-serif text-[#cb9b51] font-bold">tỷ lệ vàng</span>.
                                     </p>
-                                    <p className="text-gray-500 text-[11px] md:text-sm mt-0.5 md:mt-1">Đánh giá</p>
+                                    <p className="hidden sm:block">
+                                        Đến với Má Tư, bạn không chỉ thưởng thức trọn vẹn tinh hoa ẩm thực đường phố, mà còn tìm về một góc bình yên, nơi bữa cơm ân cần, ấm áp như tay Mẹ nấu.
+                                    </p>
                                 </div>
+
+                                {/* Call to action removed as per user request */}
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <ScrollIndicator href="#menu" theme="light" />
+            <ScrollIndicator href="#thuc-don" theme="light" />
         </div>
     );
 }

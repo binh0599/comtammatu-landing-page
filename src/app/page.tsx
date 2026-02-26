@@ -1,12 +1,16 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Menu from "@/components/Menu";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
+import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
-import GalleryClient from "@/components/GalleryClient";
 import AnimationProvider from "@/components/AnimationProvider";
+
+// Tối ưu hoá: Lazy load các component không nằm ở màn hình đầu tiên (Above the fold)
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Lightbox = dynamic(() => import("@/components/Lightbox"));
+const BookingModal = dynamic(() => import("@/components/BookingModal"));
 
 export default function Home() {
   return (
@@ -20,13 +24,14 @@ export default function Home() {
 
       <Menu />
 
-      <GalleryClient />
+      <Gallery />
 
       <Testimonials />
 
-      <Contact />
-
       <Footer />
+
+      <BookingModal />
+      <Lightbox />
     </main>
   );
 }

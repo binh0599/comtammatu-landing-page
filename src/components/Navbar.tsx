@@ -20,55 +20,70 @@ export default function Navbar() {
     }, []);
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 pointer-events-none flex flex-col items-center pt-4 md:pt-6">
-            <nav
-                className={`pointer-events-auto transition-all duration-500 rounded-full border border-vang-kem/10 ${scrolled
-                    ? "bg-den/80 backdrop-blur-md py-2 px-6 shadow-2xl shadow-black/50"
-                    : "bg-den/30 backdrop-blur-sm py-3 px-8"
-                    }`}
+        <header className={`fixed top-0 left-0 w-full z-50 pointer-events-none flex flex-col items-center px-4 md:px-8 transition-all duration-500 ease-in-out ${scrolled ? "pt-2 md:pt-2" : "pt-6 md:pt-10"
+            }`}>
+            {/* Nav Pill Container */}
+            <div className={`pointer-events-auto transition-all duration-500 ease-in-out relative flex items-center rounded-full border border-vang-kem/40 h-14 md:h-16 mx-auto ${scrolled
+                ? "bg-den/90 backdrop-blur-md shadow-2xl shadow-black/50 w-[95%] md:w-[80%] max-w-3xl"
+                : "bg-den/30 backdrop-blur-sm w-full max-w-5xl"
+                }`}
             >
-                <div className="flex items-center justify-between gap-6 md:gap-12">
-                    {/* Logo */}
-                    <a href="#hero" className="flex items-center group">
-                        <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden border-2 border-vang-kem/50 group-hover:border-vang-kem transition-colors duration-300">
-                            <Image
-                                src="/images/logo.webp"
-                                alt="Logo Cơm tấm Má Tư"
-                                fill
-                                sizes="44px"
-                                className="object-cover"
-                            />
-                        </div>
-                    </a>
-
-                    {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-8">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                className="text-trang/80 hover:text-vang-kem transition-colors duration-300 text-sm font-medium tracking-wide uppercase relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-vang-kem after:transition-all after:duration-300 hover:after:w-full"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                        <a
-                            href="tel:0772818172"
-                            className="bg-do-co/90 hover:bg-do-co text-trang px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-do-co/30 hover:scale-105"
-                        >
-                            Đặt bàn
-                        </a>
+                {/* Left Logo (Dynamic Size & Position) */}
+                <a
+                    href="#trang-chu"
+                    className={`rounded-full absolute top-1/2 -translate-y-1/2 flex items-center group z-10 transition-all duration-500 ease-in-out ${scrolled ? "left-2 md:left-4" : "-left-2 md:-left-6"
+                        }`}
+                >
+                    <div className={`relative rounded-full border-[#cb9b51] group-hover:border-white transition-all duration-500 ease-in-out shadow-xl overflow-hidden bg-den ${scrolled ? "w-10 h-10 md:w-12 md:h-12 border-[1.5px]" : "w-20 h-20 md:w-28 md:h-28 border-[3px]"
+                        }`}>
+                        <Image
+                            src="/images/logo.webp"
+                            alt="Logo Cơm tấm Má Tư"
+                            fill
+                            sizes="(max-width: 768px) 80px, 112px"
+                            className="object-cover"
+                        />
                     </div>
+                </a>
 
-                    {/* Mobile Hamburger */}
+                {/* Centered Desktop Nav */}
+                <nav className={`hidden md:flex items-center absolute top-1/2 -translate-y-1/2 z-0 whitespace-nowrap transition-all duration-500 ease-in-out ${scrolled
+                    ? "left-1/2 -translate-x-[58%] lg:-translate-x-[55%] gap-4 lg:gap-7"
+                    : "left-1/2 -translate-x-1/2 gap-6 lg:gap-10"
+                    }`}>
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            className={`rounded-full text-trang/80 hover:text-white transition-all duration-500 text-xs font-medium tracking-[0.15em] uppercase ${scrolled ? "lg:text-[11px]" : "lg:text-sm"
+                                }`}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                </nav>
+
+                {/* Right Button */}
+                <div className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 hidden md:block z-10">
+                    <button
+                        onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))}
+                        className={`bg-transparent border border-[#cb9b51] text-[#cb9b51] rounded-full font-semibold tracking-widest transition-all duration-500 ease-in-out hover:bg-[#cb9b51] hover:text-den ${scrolled ? "px-4 lg:px-6 py-1.5 lg:py-2 text-[9px] lg:text-[10px]" : "px-6 lg:px-8 py-2 lg:py-2.5 text-[10px] lg:text-xs"
+                            }`}
+                    >
+                        ĐẶT BÀN
+                    </button>
+                </div>
+
+                {/* Mobile Hamburger */}
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 md:hidden z-10">
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden text-trang p-1 relative z-50 flex items-center justify-center w-8 h-8"
+                        className="text-trang p-1 rounded-full relative flex items-center justify-center w-8 h-8"
                         aria-label="Menu"
                     >
-                        <div className="w-5 flex flex-col gap-1">
+                        <div className="w-5 flex flex-col gap-1.5">
                             <span
-                                className={`block h-[2px] bg-trang transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-[6px]" : ""
+                                className={`block h-[2px] bg-trang transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-[8px]" : ""
                                     }`}
                             />
                             <span
@@ -76,13 +91,13 @@ export default function Navbar() {
                                     }`}
                             />
                             <span
-                                className={`block h-[2px] bg-trang transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-[6px]" : ""
+                                className={`block h-[2px] bg-trang transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-[8px]" : ""
                                     }`}
                             />
                         </div>
                     </button>
                 </div>
-            </nav>
+            </div>
 
             {/* Mobile Menu Dropdown */}
             <div
@@ -97,18 +112,20 @@ export default function Navbar() {
                             key={link.href}
                             href={link.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="text-trang/90 hover:text-vang-kem py-3 text-base font-medium border-b border-trang/10"
+                            className="text-trang/90 hover:text-vang-kem py-3 text-base font-medium border-b border-trang/10 uppercase tracking-wide"
                         >
                             {link.label}
                         </a>
                     ))}
-                    <a
-                        href="tel:0772818172"
-                        className="btn-primary text-center mt-3 !w-full"
-                        onClick={() => setMobileMenuOpen(false)}
+                    <button
+                        onClick={() => {
+                            setMobileMenuOpen(false);
+                            window.dispatchEvent(new CustomEvent("open-booking"));
+                        }}
+                        className="bg-transparent border border-vang-kem text-vang-kem py-3 rounded-xl mt-3 text-sm font-bold uppercase transition-all duration-300 hover:bg-vang-kem hover:text-den"
                     >
-                        📞 Đặt bàn ngay
-                    </a>
+                        ĐẶT BÀN
+                    </button>
                 </div>
             </div>
         </header>

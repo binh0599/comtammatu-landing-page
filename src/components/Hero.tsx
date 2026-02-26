@@ -1,10 +1,11 @@
 import Image from "next/image";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import HeroButtons from "@/components/HeroButtons";
 
 export default function Hero() {
     return (
         <section
-            id="hero"
+            id="trang-chu"
             className="relative h-[100dvh] w-full flex-shrink-0 snap-start snap-always flex items-center justify-center overflow-hidden bg-[#1a1a1a]"
         >
             {/* Background */}
@@ -25,63 +26,95 @@ export default function Hero() {
             <div className="absolute bottom-32 right-16 w-14 h-14 border border-vang-kem/15 rounded-full animate-float delay-500 opacity-20 pointer-events-none" />
             <div className="absolute top-1/3 right-10 w-2 h-2 bg-vang-kem/30 rounded-full animate-float delay-300" />
 
-            {/* Monumental Typography Watermark */}
-            <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden mix-blend-overlay opacity-10 select-none">
-                <h1 className="font-serif text-[22vw] text-vang-kem leading-none whitespace-nowrap font-bold tracking-tighter">
-                    MÁ TƯ
-                </h1>
-            </div>
-
             {/* Content */}
-            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                {/* Tagline */}
-                <p className="text-vang-kem font-medium tracking-[0.4em] uppercase mb-6 text-sm animate-fade-in-down">
-                    ✦&nbsp;&nbsp;Hương vị truyền thống&nbsp;&nbsp;✦
-                </p>
+            <div className="relative z-10 w-full max-w-5xl mx-auto flex items-center justify-center px-4 md:px-6 h-full">
 
-                {/* Logo */}
-                <div className="relative w-36 h-36 mx-auto mb-8 animate-scale-in">
-                    <div className="absolute inset-0 rounded-full animate-pulse-glow" />
-                    <div className="relative w-full h-full rounded-full overflow-hidden border-3 border-vang-kem/60 animate-border-glow">
-                        <Image
-                            src="/images/logo.webp"
-                            alt="Logo Cơm tấm Má Tư"
-                            fill
-                            sizes="144px"
-                            className="object-cover"
-                            priority
-                        />
+                {/* Outer Ornate Frame */}
+                {/* Remove the generic full border, use custom borders */}
+                <div className="relative w-full max-h-[85vh] flex flex-col items-center justify-center py-8 md:py-12 px-4 md:px-10 bg-black/20 backdrop-blur-sm rounded-sm
+                    border-l-[1.5px] border-r-[1.5px] border-[#cb9b51]/50
+                ">
+                    {/* TOP Custom Border Wrapper: Uses Flexbox to auto-fill space left and right of the Logo cutout */}
+                    <div className="absolute top-0 left-0 w-full flex items-start justify-center pointer-events-none z-10">
+                        {/* Left Line */}
+                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mt-[0px]"></div>
+                        {/* Center Semi-Circle Cutout wrapping under Logo */}
+                        <div className="w-[80px] h-[40px] md:w-[124px] md:h-[62px] xl:w-[164px] xl:h-[82px] border-b-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#cb9b51]/50 rounded-b-full shrink-0"></div>
+                        {/* Right Line */}
+                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mt-[0px]"></div>
                     </div>
-                </div>
 
-                {/* Title */}
-                <h1 className="font-serif text-5xl md:text-8xl text-trang mb-4 md:mb-6 leading-tight animate-fade-in-up hero-title">
-                    Cơm tấm{" "}
-                    <span className="animate-shimmer">Má Tư</span>
-                </h1>
+                    {/* BOTTOM Custom Border Wrapper: Uses Flexbox to auto-fill space left and right of the Button block */}
+                    <div className="absolute bottom-0 left-0 w-full flex items-end justify-center pointer-events-none z-10 translate-y-[1.5px]">
+                        {/* Left Line */}
+                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mb-[0px]"></div>
+                        {/* Center Box Cutout wrapping over Buttons */}
+                        <div className="w-[280px] md:w-[470px] h-[30px] md:h-[45px] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#cb9b51]/50 rounded-t-lg shrink-0"></div>
+                        {/* Right Line */}
+                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mb-[0px]"></div>
+                    </div>
 
-                {/* Decorative line */}
-                <div className="decorative-line-center mb-6 animate-width-expand delay-400" />
+                    {/* Corners */}
+                    <svg className="absolute -top-[1.5px] -left-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M54,0 H0 V54" />
+                        <path d="M42,0 V12 H12 V42 H0" />
+                        <path d="M0,30 H24 V0" />
+                        <path d="M30,0 V24 H0" />
+                    </svg>
+                    <svg className="absolute -top-[1.5px] -right-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M0,0 H54 V54" />
+                        <path d="M12,0 V12 H42 V42 H54" />
+                        <path d="M54,30 H30 V0" />
+                        <path d="M24,0 V24 H54" />
+                    </svg>
+                    <svg className="absolute -bottom-[1.5px] -left-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M54,54 H0 V0" />
+                        <path d="M42,54 V42 H12 V12 H0" />
+                        <path d="M0,24 H24 V54" />
+                        <path d="M30,54 V30 H0" />
+                    </svg>
+                    <svg className="absolute -bottom-[1.5px] -right-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M0,54 H54 V0" />
+                        <path d="M12,54 V42 H42 V12 H54" />
+                        <path d="M54,24 H30 V54" />
+                        <path d="M24,54 V30 H54" />
+                    </svg>
 
-                {/* Subtitle */}
-                <p className="text-trang/85 text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-10 px-4 leading-relaxed animate-fade-in-up delay-300">
-                    Nơi hội tụ tinh hoa ẩm thực Việt Nam với không gian ấm cúng,
-                    hoài cổ theo phong cách Indochine
-                </p>
+                    {/* Center Logo overlaps top border perfectly fitted into the semi-circle */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center z-20">
+                        <div className="relative w-16 h-16 md:w-24 md:h-24 xl:w-32 xl:h-32 rounded-full border-[2px] md:border-[3px] border-[#cb9b51] shadow-2xl overflow-hidden animate-scale-in bg-den p-1">
+                            <Image
+                                src="/images/logo.webp"
+                                alt="Logo Cơm tấm Má Tư"
+                                fill
+                                sizes="(max-width: 768px) 80px, (max-width: 1280px) 128px, 160px"
+                                className="object-cover rounded-full"
+                                priority
+                            />
+                        </div>
+                    </div>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-500">
-                    <a href="#menu" className="btn-primary">
-                        Khám phá thực đơn
-                    </a>
-                    <a href="#contact" className="btn-outline">
-                        Đặt bàn ngay
-                    </a>
+                    {/* Content wrapper inside frame to prevent squish */}
+                    <div className="flex flex-col items-center justify-center flex-1 min-h-0 py-2 w-full">
+                        {/* Title */}
+                        <h1 className="font-serif text-3xl md:text-4xl lg:text-6xl text-trang mt-2 md:mt-4 lg:mt-8 mb-2 md:mb-4 lg:mb-4 leading-[1.1] animate-fade-in-up tracking-wider drop-shadow-xl text-center text-balance">
+                            <span className="text-[#cb9b51] animate-shimmer font-medium [text-shadow:0_4px_8px_rgba(0,0,0,0.8)]">Cơm Tấm Má Tư</span>
+                        </h1>
+
+                        {/* Subtitle */}
+                        <p className="text-white/90 text-xs md:text-base lg:text-lg max-w-2xl mx-auto text-center leading-relaxed animate-fade-in-up delay-300 font-serif tracking-[0.05em] px-2 md:px-8">
+                            Nơi hội tụ tinh hoa ẩm thực Việt Nam với không gian ấm cúng,<br className="hidden md:block" />
+                            hoài cổ theo phong cách giao thoa Indochine.
+                        </p>
+                    </div>
+
+                    {/* CTA Buttons overlaps bottom border perfectly fitted into the bottom box wrapper */}
+                    <HeroButtons />
                 </div>
             </div>
 
             {/* Scroll indicator */}
-            <ScrollIndicator href="#about" theme="dark" />
+            <ScrollIndicator href="#cau-chuyen" theme="dark" />
         </section>
     );
 }

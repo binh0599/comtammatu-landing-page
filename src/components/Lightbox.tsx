@@ -1,20 +1,29 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { Suspense } from "react";
 
-interface LightboxProps {
-    src: string;
-    onClose: () => void;
-}
+function LightboxContent() {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const pathname = usePathname();
+    const src = searchParams.get("image");
 
-export default function Lightbox({ src, onClose }: LightboxProps) {
+    const onClose = () => {
+        // Remove the query parameter without scrolling
+        router.replace(pathname, { scroll: false });
+    };
+
+    if (!src) return null;
+
     return (
         <div
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 animate-fade-in"
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 animate-fade-in overscroll-contain touch-manipulation"
             onClick={onClose}
         >
             <button
-                className="absolute top-4 right-4 md:top-8 md:right-8 text-trang/70 hover:text-white bg-trang/10 hover:bg-do-co p-2 rounded-full backdrop-blur-md transition-all z-50"
+                className="absolute top-4 right-4 md:top-8 md:right-8 text-trang/70 hover:text-white bg-trang/10 hover:bg-do-co p-2 rounded-full backdrop-blur-md transition-all z-50 focus-visible:ring-2 focus-visible:ring-trang focus-visible:outline-none"
                 onClick={onClose}
                 aria-label="Đóng"
             >
@@ -45,5 +54,13 @@ export default function Lightbox({ src, onClose }: LightboxProps) {
                 />
             </div>
         </div>
+    );
+}
+
+export default function Lightbox() {
+    return (
+        <Suspense fallback={null}>
+            <LightboxContent />
+        </Suspense>
     );
 }
