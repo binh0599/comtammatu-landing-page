@@ -44,7 +44,7 @@ export default function Menu() {
                 {/* Section Header */}
                 <div className="text-center shrink-0">
                     <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F9E5C5] leading-tight drop-shadow-xl tracking-wide w-full relative z-30 text-balance">
-                        Hương Vị <span className="font-light italic text-[#E5A853]">Đặc Trưng</span>
+                        Hương Vị <span className="font-light italic text-[#E5A853]">Đặc Trưng</span><span className="sr-only"> - Thịt tươi 100% - Cơm tấm Vũng Tàu</span>
                     </h2>
                 </div>
 

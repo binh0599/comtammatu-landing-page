@@ -69,13 +69,13 @@ export default function About() {
                                 {/* Editorial Paragraphs */}
                                 <div className="space-y-3 md:space-y-4 text-[#4a4238] font-sans text-xs md:text-sm leading-snug md:leading-relaxed text-justify max-w-lg shrink">
                                     <p>
-                                        Sinh ra từ gian bếp nhỏ vương màu khói lửa Sài Gòn xưa, <strong className="text-[#8B0000] font-semibold">Cơm Tấm Má Tư</strong> không đơn thuần là một món ăn, mà là sợi dây vô hình kết nối quá khứ và hiện tại. Lửa lò nướng sườn của Má chưa bao giờ tắt, vẫn vẹn nguyên công thức ướp bí truyền suốt ba thập kỷ.
+                                        Sinh ra từ gian bếp nhỏ vương màu khói lửa Sài Gòn xưa, <strong className="text-[#8B0000] font-semibold">Cơm Tấm Má Tư</strong> không đơn thuần là một món ăn, mà là sợi dây vô hình kết nối quá khứ và hiện tại. Lửa lò nướng sườn của Má chưa bao giờ tắt, vẫn vẹn nguyên công thức ướp bí truyền suốt ba thập kỷ để mang đến đĩa <strong className="text-[#8B0000] font-semibold">cơm tấm ngon nhất Bà Rịa</strong>.
                                     </p>
                                     <p>
-                                        Từng hạt tấm tơi xốp quấn quýt bên miếng sườn nướng than hoa cháy cạnh, tươm mỡ vàng óng. Miếng chả trứng chưng thịt đẫm vị, hòa quyện cùng thìa nước mắm chua ngọt sánh dẻo pha theo một <span className="italic font-serif text-[#cb9b51] font-bold">tỷ lệ vàng</span>.
+                                        Từng hạt tấm tơi xốp quấn quýt bên miếng sườn nướng than hoa cháy cạnh, tươm mỡ vàng óng từ nguồn <span className="font-semibold text-[#8B0000]">thịt tươi 100%</span>. Miếng chả trứng chưng thịt đẫm vị, hòa quyện cùng thìa nước mắm chua ngọt sánh dẻo pha theo một <span className="italic font-serif text-[#cb9b51] font-bold">tỷ lệ vàng</span>.
                                     </p>
                                     <p className="hidden sm:block">
-                                        Đến với Má Tư, bạn không chỉ thưởng thức trọn vẹn tinh hoa ẩm thực đường phố, mà còn tìm về một góc bình yên, nơi bữa cơm ân cần, ấm áp như tay Mẹ nấu.
+                                        Đến với Má Tư, bạn không chỉ thưởng thức trọn vẹn tinh hoa ẩm thực đường phố của một quán <strong className="text-[#8B0000]">Cơm tấm Vũng Tàu</strong>, mà còn tìm về một góc bình yên, nơi bữa cơm ân cần, ấm áp như tay Mẹ nấu.
                                     </p>
                                 </div>
 

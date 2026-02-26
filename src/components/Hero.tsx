@@ -101,8 +101,9 @@ export default function Hero() {
                     {/* Content wrapper inside frame to prevent squish */}
                     <div className="flex flex-col items-center justify-center flex-1 min-h-0 py-2 w-full">
                         {/* Title */}
-                        <h1 className="font-serif text-3xl md:text-4xl lg:text-6xl text-trang mt-2 md:mt-4 lg:mt-8 mb-2 md:mb-4 lg:mb-4 leading-[1.1] animate-fade-in-up tracking-wider drop-shadow-xl text-center text-balance">
+                        <h1 className="font-serif text-3xl md:text-4xl lg:text-6xl text-trang mt-2 md:mt-4 lg:mt-8 mb-2 md:mb-4 lg:mb-4 leading-[1.1] animate-fade-in-up tracking-wider drop-shadow-xl text-center text-balance flex flex-col items-center">
                             <span className="text-[#cb9b51] animate-shimmer font-medium [text-shadow:0_4px_8px_rgba(0,0,0,0.8)] [text-wrap:balance]">Cơm Tấm Má Tư</span>
+                            <span className="sr-only"> - Cơm tấm ngon nhất Bà Rịa, Vũng Tàu. Thịt tươi 100%.</span>
                         </h1>
 
                         {/* Subtitle */}
