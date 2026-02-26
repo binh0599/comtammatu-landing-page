@@ -4,8 +4,6 @@ import Image from "next/image";
 import { useRef } from "react";
 import {
     menuGroups,
-    sideItems,
-    drinkOptions,
 } from "@/lib/data";
 
 const cardsData = menuGroups.map((group, index) => {

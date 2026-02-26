@@ -40,8 +40,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# agents and skills
-.agent/
+# Agents & Skills
 .agents/
-.claude/
+.agent/
+_agents/
+_agent/
 skills-lock.json
+AGENTS.md
+CLAUDE.md
+.claude/
+tasks/

@@ -7,7 +7,7 @@ export default function Gallery() {
     return (
         <div
             id="khong-gian"
-            className="h-[100dvh] md:h-auto w-full flex-shrink-0 md:min-h-[100dvh] snap-start snap-always flex flex-col relative"
+            className="h-[100dvh] w-full flex-shrink-0 snap-start snap-always flex flex-col relative"
         >
 
             {/* Gallery Section */}
