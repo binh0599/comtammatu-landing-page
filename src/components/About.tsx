@@ -61,7 +61,7 @@ export default function About() {
                                 </div>
 
                                 {/* Main Title */}
-                                <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#2a231d] mb-3 md:mb-6 leading-[1.05] drop-shadow-sm">
+                                <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#2a231d] mb-3 md:mb-6 leading-[1.05] drop-shadow-sm [text-wrap:balance]">
                                     Hơn Cả Một <br />
                                     <span className="block text-right text-[#8B0000] italic font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Đĩa Cơm Tấm</span>
                                 </h2>

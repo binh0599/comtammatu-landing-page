@@ -14,7 +14,7 @@ export default function Testimonials() {
                     <p className="text-do-co font-semibold tracking-[0.2em] uppercase text-[10px] md:text-xs lg:text-sm mb-1.5 md:mb-2 border-b border-do-co/20 inline-block pb-0.5">
                         Cảm nhận
                     </p>
-                    <h2 className="font-serif text-[28px] md:text-4xl lg:text-5xl text-nau-dam drop-shadow-sm mt-1">
+                    <h2 className="font-serif text-[28px] md:text-4xl lg:text-5xl text-nau-dam drop-shadow-sm mt-1 [text-wrap:balance]">
                         Khách hàng <span className="text-do-co italic font-light">nói gì</span>
                     </h2>
                 </div>

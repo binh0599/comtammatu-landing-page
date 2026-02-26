@@ -2,6 +2,30 @@ import Image from "next/image";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
 import HeroButtons from "@/components/HeroButtons";
 
+const CornerDecoration = ({ className }: { className: string }) => (
+    <svg className={`absolute w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none ${className}`} viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M54,0 H0 V54" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
+        <path d="M42,0 V12 H12 V42 H0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
+        <path d="M0,30 H24 V0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
+        <path d="M30,0 V24 H0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
+
+        <path d="M0,0 H54 V54" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
+        <path d="M12,0 V12 H42 V42 H54" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
+        <path d="M54,30 H30 V0" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
+        <path d="M24,0 V24 H54" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
+
+        <path d="M54,54 H0 V0" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
+        <path d="M42,54 V42 H12 V12 H0" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
+        <path d="M0,24 H24 V54" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
+        <path d="M30,54 V30 H0" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
+
+        <path d="M0,54 H54 V0" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
+        <path d="M12,54 V42 H42 V12 H54" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
+        <path d="M54,24 H30 V54" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
+        <path d="M24,54 V30 H54" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
+    </svg>
+);
+
 export default function Hero() {
     return (
         <section
@@ -55,30 +79,10 @@ export default function Hero() {
                     </div>
 
                     {/* Corners */}
-                    <svg className="absolute -top-[1.5px] -left-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M54,0 H0 V54" />
-                        <path d="M42,0 V12 H12 V42 H0" />
-                        <path d="M0,30 H24 V0" />
-                        <path d="M30,0 V24 H0" />
-                    </svg>
-                    <svg className="absolute -top-[1.5px] -right-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M0,0 H54 V54" />
-                        <path d="M12,0 V12 H42 V42 H54" />
-                        <path d="M54,30 H30 V0" />
-                        <path d="M24,0 V24 H54" />
-                    </svg>
-                    <svg className="absolute -bottom-[1.5px] -left-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M54,54 H0 V0" />
-                        <path d="M42,54 V42 H12 V12 H0" />
-                        <path d="M0,24 H24 V54" />
-                        <path d="M30,54 V30 H0" />
-                    </svg>
-                    <svg className="absolute -bottom-[1.5px] -right-[1.5px] w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M0,54 H54 V0" />
-                        <path d="M12,54 V42 H42 V12 H54" />
-                        <path d="M54,24 H30 V54" />
-                        <path d="M24,54 V30 H54" />
-                    </svg>
+                    <CornerDecoration className="-top-[1.5px] -left-[1.5px]" />
+                    <CornerDecoration className="-top-[1.5px] -right-[1.5px]" />
+                    <CornerDecoration className="-bottom-[1.5px] -left-[1.5px]" />
+                    <CornerDecoration className="-bottom-[1.5px] -right-[1.5px]" />
 
                     {/* Center Logo overlaps top border perfectly fitted into the semi-circle */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center z-20">
@@ -98,11 +102,11 @@ export default function Hero() {
                     <div className="flex flex-col items-center justify-center flex-1 min-h-0 py-2 w-full">
                         {/* Title */}
                         <h1 className="font-serif text-3xl md:text-4xl lg:text-6xl text-trang mt-2 md:mt-4 lg:mt-8 mb-2 md:mb-4 lg:mb-4 leading-[1.1] animate-fade-in-up tracking-wider drop-shadow-xl text-center text-balance">
-                            <span className="text-[#cb9b51] animate-shimmer font-medium [text-shadow:0_4px_8px_rgba(0,0,0,0.8)]">Cơm Tấm Má Tư</span>
+                            <span className="text-[#cb9b51] animate-shimmer font-medium [text-shadow:0_4px_8px_rgba(0,0,0,0.8)] [text-wrap:balance]">Cơm Tấm Má Tư</span>
                         </h1>
 
                         {/* Subtitle */}
-                        <p className="text-white/90 text-xs md:text-base lg:text-lg max-w-2xl mx-auto text-center leading-relaxed animate-fade-in-up delay-300 font-serif tracking-[0.05em] px-2 md:px-8">
+                        <p className="text-white/90 text-xs md:text-base lg:text-lg max-w-2xl mx-auto text-center leading-relaxed animate-fade-in-up delay-300 font-serif tracking-[0.05em] px-2 md:px-8 [text-wrap:pretty]">
                             Nơi hội tụ tinh hoa ẩm thực Việt Nam với không gian ấm cúng,<br className="hidden md:block" />
                             hoài cổ theo phong cách giao thoa Indochine.
                         </p>

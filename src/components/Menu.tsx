@@ -35,7 +35,6 @@ export default function Menu() {
                     alt="Menu Background"
                     fill
                     className="object-cover opacity-20"
-                    priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#1A1108]/90 via-[#1A1108]/70 to-[#1A1108]/90" />
             </div>
@@ -116,29 +115,7 @@ export default function Menu() {
                     </div>
                 </div>
 
-                {/* Extras: Sides & Drinks */}
-                {/* <div className="shrink-0 w-full max-w-[900px] grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 z-20 px-4 md:px-0 relative z-30 pb-2 md:pb-0">
-                    <div className="border border-[#D4AF37]/20 rounded-xl p-2.5 md:p-3 bg-[#1A1108]/60 backdrop-blur-md transition-colors hover:bg-[#1A1108]/80 shadow-lg">
-                        <h4 className="text-[#D4AF37] font-serif text-[10px] md:text-xs text-center mb-1.5 tracking-[0.2em] uppercase border-b border-[#D4AF37]/20 pb-1.5">Gọi Thêm</h4>
-                        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1">
-                            {sideItems.map((item, idx) => (
-                                <span key={idx} className="text-[#E8D0A5]/80 text-[10px] md:text-[11px] tracking-wide">
-                                    {item.name} <span className="text-[#D4AF37] font-mono ml-0.5">{item.price}</span>
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="border border-[#D4AF37]/20 rounded-xl p-2.5 md:p-3 bg-[#1A1108]/60 backdrop-blur-md transition-colors hover:bg-[#1A1108]/80 shadow-lg">
-                        <h4 className="text-[#D4AF37] font-serif text-[10px] md:text-xs text-center mb-1.5 tracking-[0.2em] uppercase border-b border-[#D4AF37]/20 pb-1.5">Giải Khát</h4>
-                        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1">
-                            {drinkOptions.slice(0, 5).map((item, idx) => (
-                                <span key={idx} className="text-[#E8D0A5]/80 text-[10px] md:text-[11px] tracking-wide">
-                                    {item.name} <span className="text-[#D4AF37] font-mono ml-0.5">{item.price}</span>
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                </div> */}
+
 
             </div>
         </section>

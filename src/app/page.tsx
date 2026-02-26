@@ -3,12 +3,12 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Menu from "@/components/Menu";
-import Gallery from "@/components/Gallery";
-import Footer from "@/components/Footer";
 import AnimationProvider from "@/components/AnimationProvider";
 
 // Tối ưu hoá: Lazy load các component không nằm ở màn hình đầu tiên (Above the fold)
+const Gallery = dynamic(() => import("@/components/Gallery"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Footer = dynamic(() => import("@/components/Footer"));
 const Lightbox = dynamic(() => import("@/components/Lightbox"));
 const BookingModal = dynamic(() => import("@/components/BookingModal"));
 
