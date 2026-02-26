@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Philosopher, Mulish } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const philosopher = Philosopher({
   variable: "--font-philosopher",
@@ -114,6 +115,7 @@ export default function RootLayout({
       <body
         className={`${philosopher.variable} ${mulish.variable} font-sans antialiased`}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>

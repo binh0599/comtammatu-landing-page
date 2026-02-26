@@ -1,94 +1,64 @@
-"use client";
-
 import Image from "next/image";
+import Link from "next/link";
 import { galleryImages } from "@/lib/data";
-import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import GalleryButtons from "@/components/GalleryButtons";
 
-interface GalleryProps {
-    onImageClick: (src: string) => void;
-}
-
-export default function Gallery({ onImageClick }: GalleryProps) {
+export default function Gallery() {
     return (
         <div
-            id="space"
+            id="khong-gian"
             className="h-[100dvh] md:h-auto w-full flex-shrink-0 md:min-h-[100dvh] snap-start snap-always flex flex-col relative"
         >
-            {/* Wave: Menu → Space */}
-            <div className="wave-divider bg-nau-dam flex-shrink-0">
-                <svg
-                    viewBox="0 0 1440 80"
-                    xmlns="http://www.w3.org/2000/svg"
-                    preserveAspectRatio="none"
-                >
-                    <path
-                        d="M0,60 C480,0 960,80 1440,20 L1440,80 L0,80 Z"
-                        fill="#3E2723"
-                    />
-                </svg>
-            </div>
 
             {/* Gallery Section */}
-            <section className="flex-1 pt-16 pb-20 md:pt-8 md:pb-24 bg-nau-dam relative overflow-hidden flex flex-col justify-center">
+            <section className="flex-1 pt-24 pb-0 md:pt-28 md:pb-0 bg-nau-dam relative overflow-hidden flex flex-col justify-between">
                 {/* Subtle glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-do-co/10 rounded-full blur-3xl" />
 
-                <div className="container mx-auto px-4 max-w-7xl relative z-10">
+                <div className="container mx-auto px-4 max-w-7xl relative z-10 flex flex-col flex-1 pb-4 md:pb-8">
                     {/* Section Header */}
-                    <div className="text-center mb-4 md:mb-10 section-reveal">
+                    <div className="text-center mb-6 md:mb-10 section-reveal pt-4 md:pt-0">
                         <p className="text-vang-kem font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-1 md:mb-3">
                             Không gian
                         </p>
-                        <h2 className="font-serif text-2xl md:text-5xl text-trang mb-2 md:mb-4">
-                            Phong cách <span className="text-vang-kem">Indochine</span>
+                        <h2 className="font-serif text-3xl md:text-5xl text-vang-kem mb-2 md:mb-4 text-balance">
+                            Không Gian & Bầu <span className="text-trang">Không Khí</span>
                         </h2>
-                        <div className="decorative-line-center" />
+                        <div className="decorative-line-center bg-vang-kem" />
                     </div>
 
-                    {/* Gallery Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 reveal-fade">
-                        {galleryImages.slice(0, 5).map((img, idx) => (
-                            <div
+                    <div className="flex-1 min-h-0 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 reveal-fade mb-6 md:mb-10 w-full h-[50vh] md:h-auto overflow-hidden">
+                        {galleryImages.slice(0, 3).map((img, idx) => (
+                            <Link
                                 key={idx}
-                                onClick={() => onImageClick(img.src)}
-                                className={`relative rounded-xl overflow-hidden group cursor-pointer ${img.span} ${img.span.includes("row-span-2")
-                                    ? "h-[25vh] md:h-[50vh]"
-                                    : "h-[12vh] md:h-[24vh]"
-                                    }`}
+                                href={`?image=${encodeURIComponent(img.src)}`}
+                                scroll={false}
+                                className="relative rounded-lg overflow-hidden group cursor-pointer h-full min-h-[150px] focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
                             >
                                 <Image
                                     src={img.src}
                                     alt={img.alt}
                                     fill
-                                    sizes={img.span.includes("col-span-2") ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
-                                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100">
-                                        <div className="w-12 h-12 rounded-full border-2 border-trang flex items-center justify-center">
-                                            <svg
-                                                className="w-5 h-5 text-trang"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                {/* Overlay gradient to match design vibe */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                            </Link>
                         ))}
                     </div>
                 </div>
-            </section>
 
-            <ScrollIndicator href="#testimonials" theme="dark" />
+                {/* Booking Red Banner */}
+                <div className="w-full bg-do-co py-6 md:py-8 mt-auto relative z-20 border-t-2 border-vang-kem/30 flex-shrink-0">
+                    <div className="container mx-auto px-4 text-center flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                        <p className="text-trang uppercase font-serif text-lg md:text-2xl tracking-widest leading-relaxed">
+                            Đặt Bàn Ngay Để Trải Nghiệm
+                        </p>
+                        <GalleryButtons />
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
