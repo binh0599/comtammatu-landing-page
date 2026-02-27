@@ -1,7 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  /* Indochine Color Palette - Cơm tấm Má Tư */
+  /* ================================================================
+   * DESIGN SYSTEM: Cơm Tấm Má Tư — Phong cách Indochine
+   * ================================================================
+   * Đây là nguồn chuẩn (source of truth) cho toàn bộ hệ thống:
+   *   - Landing Page (com-tam-ma-tu)
+   *   - Mobile App (cam-tam-ma-tu-app)
+   *   - CRM (com-tam-ma-tu-crm)
+   *
+   * BRAND COLORS:
+   *   Đỏ cổ     #8B0000  — Màu chủ đạo, truyền thống, CTA
+   *   Đỏ nhạt   #B22222  — Hover/active, gradient
+   *   Vàng kem   #D4A574  — Điểm nhấn, trang trí, viền
+   *   Vàng nhạt  #F5E6D3  — Nền sáng, bề mặt nhẹ
+   *   Nâu gỗ    #5D4037  — Văn bản phụ
+   *   Nâu đậm   #3E2723  — Văn bản chính, nền tối
+   *   Xanh lá   #2E7D32  — Trạng thái thành công
+   *   Trắng     #FAFAFA  — Nền sáng, bề mặt
+   *   Đen       #1A1A1A  — Nền tối
+   *   Đen nhạt  #2D2D2D  — Nền tối phụ
+   *
+   * SEMANTIC COLORS:
+   *   Success   #2E7D32  — Thành công (xanh lá)
+   *   Error     #D32F2F  — Lỗi (đỏ sáng)
+   *   Warning   #F9A825  — Cảnh báo (vàng cam)
+   *   Info      #1976D2  — Thông tin (xanh dương)
+   *
+   * NEUTRAL COLORS:
+   *   Nền kem   #FFF8F0  — Background ấm (App/CRM)
+   *   Đường kẻ  #E8DDD5  — Divider, border
+   *   Vô hiệu  #D0C8C0  — Disabled
+   * ================================================================ */
+
+  /* Brand Colors */
   --color-do-co: #8B0000;
   --color-do-nhat: #B22222;
   --color-nau-go: #5D4037;
@@ -13,11 +45,23 @@
   --color-den: #1A1A1A;
   --color-den-nhat: #2D2D2D;
 
+  /* Semantic Colors */
+  --color-success: #2E7D32;
+  --color-error: #D32F2F;
+  --color-warning: #F9A825;
+  --color-info: #1976D2;
+
+  /* Neutral Colors */
+  --color-nen-kem: #FFF8F0;
+  --color-duong-ke: #E8DDD5;
+  --color-vo-hieu: #D0C8C0;
+
   --background: #FAFAFA;
   --foreground: #1A1A1A;
 }
 
 @theme inline {
+  /* Brand Colors */
   --color-do-co: var(--color-do-co);
   --color-do-nhat: var(--color-do-nhat);
   --color-nau-go: var(--color-nau-go);
@@ -28,6 +72,17 @@
   --color-trang: var(--color-trang);
   --color-den: var(--color-den);
   --color-den-nhat: var(--color-den-nhat);
+
+  /* Semantic Colors */
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+  --color-warning: var(--color-warning);
+  --color-info: var(--color-info);
+
+  /* Neutral Colors */
+  --color-nen-kem: var(--color-nen-kem);
+  --color-duong-ke: var(--color-duong-ke);
+  --color-vo-hieu: var(--color-vo-hieu);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
