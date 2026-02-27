@@ -14,7 +14,10 @@ const BookingModal = dynamic(() => import("@/components/BookingModal"));
 
 export default function Home() {
   return (
-    <main className="h-[100dvh] w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth font-serif">
+    <main className="h-[100dvh] w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth font-serif" id="main-content">
+      <a href="#cau-chuyen" className="skip-link">
+        Chuyển đến nội dung chính
+      </a>
       <AnimationProvider />
       <Navbar />
 

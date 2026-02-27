@@ -3,7 +3,7 @@ import ScrollIndicator from "@/components/ui/ScrollIndicator";
 import HeroButtons from "@/components/HeroButtons";
 
 const CornerDecoration = ({ className }: { className: string }) => (
-    <svg className={`absolute w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none ${className}`} viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" className={`absolute w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none ${className}`} viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M54,0 H0 V54" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
         <path d="M42,0 V12 H12 V42 H0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
         <path d="M0,30 H24 V0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
@@ -46,9 +46,9 @@ export default function Hero() {
             </div>
 
             {/* Decorative floating elements */}
-            <div className="absolute top-20 left-10 w-20 h-20 border border-vang-kem/20 rounded-full animate-float opacity-30 pointer-events-none" />
-            <div className="absolute bottom-32 right-16 w-14 h-14 border border-vang-kem/15 rounded-full animate-float delay-500 opacity-20 pointer-events-none" />
-            <div className="absolute top-1/3 right-10 w-2 h-2 bg-vang-kem/30 rounded-full animate-float delay-300" />
+            <div className="absolute top-20 left-10 w-20 h-20 border border-vang-kem/20 rounded-full animate-float opacity-30 pointer-events-none" aria-hidden="true" />
+            <div className="absolute bottom-32 right-16 w-14 h-14 border border-vang-kem/15 rounded-full animate-float delay-500 opacity-20 pointer-events-none" aria-hidden="true" />
+            <div className="absolute top-1/3 right-10 w-2 h-2 bg-vang-kem/30 rounded-full animate-float delay-300" aria-hidden="true" />
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-5xl mx-auto flex items-center justify-center px-4 md:px-6 h-full">
@@ -59,7 +59,7 @@ export default function Hero() {
                     border-l-[1.5px] border-r-[1.5px] border-[#cb9b51]/50
                 ">
                     {/* TOP Custom Border Wrapper: Uses Flexbox to auto-fill space left and right of the Logo cutout */}
-                    <div className="absolute top-0 left-0 w-full flex items-start justify-center pointer-events-none z-10">
+                    <div className="absolute top-0 left-0 w-full flex items-start justify-center pointer-events-none z-10" aria-hidden="true">
                         {/* Left Line */}
                         <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mt-[0px]"></div>
                         {/* Center Semi-Circle Cutout wrapping under Logo */}
@@ -69,7 +69,7 @@ export default function Hero() {
                     </div>
 
                     {/* BOTTOM Custom Border Wrapper: Uses Flexbox to auto-fill space left and right of the Button block */}
-                    <div className="absolute bottom-0 left-0 w-full flex items-end justify-center pointer-events-none z-10 translate-y-[1.5px]">
+                    <div className="absolute bottom-0 left-0 w-full flex items-end justify-center pointer-events-none z-10 translate-y-[1.5px]" aria-hidden="true">
                         {/* Left Line */}
                         <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mb-[0px]"></div>
                         {/* Center Box Cutout wrapping over Buttons */}

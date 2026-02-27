@@ -14,7 +14,8 @@ export default function ScrollIndicator({
 
     return (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
-            <a href={href} className="flex flex-col items-center gap-2 group">                {/* Scroll Mouse Icon */}
+            <a href={href} aria-label="Cuộn xuống phần tiếp theo" className="flex flex-col items-center gap-2 group focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none rounded-full">
+                {/* Scroll Mouse Icon */}
                 <div
                     className={`w-6 h-10 border-2 rounded-full flex justify-center pt-2 transition-colors duration-300 ${isDark
                         ? "border-trang/40 group-hover:border-vang-kem/60"

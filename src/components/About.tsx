@@ -10,7 +10,7 @@ export default function About() {
             {/* About Section - Super Clean Editorial Layout */}
             <section className="flex-1 min-h-0 relative overflow-hidden flex flex-col justify-center">
                 {/* Vintage Paper texture overlay */}
-                <div className="absolute inset-0 opacity-40 mix-blend-multiply pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cream-paper.png')" }}></div>
+                <div className="absolute inset-0 opacity-40 mix-blend-multiply pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cream-paper.png')" }} aria-hidden="true"></div>
 
                 <div className="flex-1 min-h-0 container mx-auto px-6 md:px-12 lg:px-20 max-w-6xl relative z-10 flex flex-col justify-center">
 
@@ -47,14 +47,14 @@ export default function About() {
                         <div className="w-full lg:w-7/12 flex flex-col justify-center reveal-right z-10 shrink min-h-0 text-left">
 
                             {/* Giant Watermark Background Text (Optional, keep it subtle) */}
-                            <div className="absolute -top-10 -left-10 text-[100px] md:text-[180px] text-vang-kem/10 font-serif leading-none italic select-none pointer-events-none z-0">
+                            <div className="absolute -top-10 -left-10 text-[100px] md:text-[180px] text-vang-kem/10 font-serif leading-none italic select-none pointer-events-none z-0" aria-hidden="true">
                                 Sài Gòn
                             </div>
 
                             <div className="relative z-10 flex flex-col min-h-0">
                                 {/* Eyebrow / Subhead */}
                                 <div className="flex items-center gap-3 mb-2 md:mb-4">
-                                    <div className="w-10 h-[1px] bg-[#cb9b51]"></div>
+                                    <div className="w-10 h-[1px] bg-[#cb9b51]" aria-hidden="true"></div>
                                     <p className="text-[#8B0000] font-bold tracking-[0.25em] uppercase text-[10px] md:text-sm">
                                         Câu Chuyện
                                     </p>

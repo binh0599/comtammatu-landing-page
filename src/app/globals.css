@@ -41,18 +41,35 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Hide default cursor only on devices with hover support (desktop) */
-@media (hover: hover) and (pointer: fine) {
-  body, 
-  a, 
-  button, 
-  input, 
-  select, 
-  textarea, 
-  [role="button"], 
+/* Hide default cursor only on desktop with no reduced-motion preference */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body,
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  [role="button"],
   .cursor-pointer {
     cursor: none !important;
   }
+}
+
+/* Skip-to-content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 8px 16px;
+  background: var(--color-do-co);
+  color: var(--color-trang);
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 16px;
 }
 
 /* ============ ANIMATIONS ============ */
@@ -660,5 +677,60 @@ body {
   .hero-title {
     font-size: 2.8rem !important;
     line-height: 1.1 !important;
+  }
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all custom animations */
+  .animate-pop-drop,
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-fade-in-down,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale-in,
+  .animate-float,
+  .animate-shimmer,
+  .animate-pulse-glow,
+  .animate-scroll-down,
+  .animate-border-glow,
+  .animate-width-expand {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Disable scroll-reveal transitions */
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-fade,
+  .section-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Disable scroll-snap which can trap keyboard users */
+  main {
+    scroll-snap-type: none !important;
+  }
+
+  /* Disable hover animations */
+  .hover-lift:hover,
+  .img-zoom:hover,
+  .card-premium:hover {
+    transform: none !important;
+  }
+
+  /* General transition reduction */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

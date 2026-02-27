@@ -32,11 +32,12 @@ export default function Menu() {
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <Image
                     src="/images/space-1.webp"
-                    alt="Menu Background"
+                    alt=""
                     fill
                     className="object-cover opacity-20"
+                    aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#1A1108]/90 via-[#1A1108]/70 to-[#1A1108]/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#1A1108]/90 via-[#1A1108]/70 to-[#1A1108]/90" aria-hidden="true" />
             </div>
 
             <div className="container mx-auto px-4 md:px-6 relative z-20 flex flex-col items-center justify-between w-full h-full max-w-7xl pt-20 md:pt-24 pb-8 md:pb-12">
@@ -52,7 +53,21 @@ export default function Menu() {
                 <div className="w-full flex-1 flex flex-col items-center justify-center min-h-0 pt-4 md:pt-8 lg:pt-12">
                     <div
                         ref={scrollContainerRef}
-                        className="w-full max-w-[1100px] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pt-[55px] md:pt-[70px] lg:pt-[80px] px-4 md:px-0 -mx-4 md:mx-0 gap-5 md:gap-6 lg:gap-8 justify-start md:justify-center relative z-20 h-full max-h-[500px] lg:max-h-[550px]"
+                        role="region"
+                        aria-label="Danh sách món ăn — cuộn ngang"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                            if (!scrollContainerRef.current) return;
+                            const scrollAmount = 300;
+                            if (e.key === "ArrowRight") {
+                                e.preventDefault();
+                                scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+                            } else if (e.key === "ArrowLeft") {
+                                e.preventDefault();
+                                scrollContainerRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+                            }
+                        }}
+                        className="w-full max-w-[1100px] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pt-[55px] md:pt-[70px] lg:pt-[80px] px-4 md:px-0 -mx-4 md:mx-0 gap-5 md:gap-6 lg:gap-8 justify-start md:justify-center relative z-20 h-full max-h-[500px] lg:max-h-[550px] focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none rounded-lg"
                     >
                         {cardsData.map((card) => (
                             <div
@@ -107,7 +122,7 @@ export default function Menu() {
                                 </div>
 
                                 {/* Mobile scroll indicator pulse arrow */}
-                                <div className="absolute top-1/2 -right-2 md:hidden text-[#D4AF37]/40 animate-pulse pointer-events-none text-lg">
+                                <div className="absolute top-1/2 -right-2 md:hidden text-[#D4AF37]/40 animate-pulse pointer-events-none text-lg" aria-hidden="true">
                                     &gt;
                                 </div>
                             </div>

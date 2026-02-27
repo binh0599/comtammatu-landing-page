@@ -7,7 +7,7 @@ export default function HeroButtons() {
                 <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Khám phá</span>
                 <div className="absolute inset-0 h-full w-full scale-0 rounded-sm transition-all duration-300 group-hover:scale-100 group-hover:bg-white/20"></div>
             </a>
-            <button onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))} className="group relative w-[130px] md:w-[220px] bg-black/80 backdrop-blur-md border border-[#cb9b51] hover:bg-[#cb9b51] hover:text-black text-[#cb9b51] font-semibold py-2.5 md:py-4 px-1 md:px-4 rounded-sm text-[9px] md:text-[12px] uppercase tracking-[0.1em] md:tracking-[0.15em] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.5)] text-center flex items-center justify-center overflow-hidden focus-visible:ring-2 focus-visible:ring-[#cb9b51] focus-visible:outline-none touch-manipulation cursor-pointer">
+            <button onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))} className="group relative w-[130px] md:w-[220px] bg-black/80 backdrop-blur-md border border-[#cb9b51] hover:bg-[#cb9b51] hover:text-black text-[#D0A458] font-semibold py-2.5 md:py-4 px-1 md:px-4 rounded-sm text-[9px] md:text-[12px] uppercase tracking-[0.1em] md:tracking-[0.15em] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.5)] text-center flex items-center justify-center overflow-hidden focus-visible:ring-2 focus-visible:ring-[#cb9b51] focus-visible:outline-none touch-manipulation cursor-pointer">
                 <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Đặt bàn</span>
             </button>
         </div>

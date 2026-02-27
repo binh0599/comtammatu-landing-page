@@ -4,8 +4,8 @@ export default function Testimonials() {
     return (
         <section id="cam-nhan" className="h-[100dvh] w-full shrink-0 snap-start snap-always flex flex-col justify-center items-center relative bg-trang overflow-hidden">
             {/* Background elements */}
-            <div className="absolute top-10 right-[-5%] w-64 h-64 md:w-96 md:h-96 bg-do-co/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-10 left-[-5%] w-48 h-48 md:w-80 md:h-80 bg-vang-kem/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-10 right-[-5%] w-64 h-64 md:w-96 md:h-96 bg-do-co/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+            <div className="absolute bottom-10 left-[-5%] w-48 h-48 md:w-80 md:h-80 bg-vang-kem/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
             <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10 flex flex-col justify-center">
 
@@ -32,14 +32,14 @@ export default function Testimonials() {
                                 >
                                     {/* Quote mark */}
                                     <div className="absolute -top-4 left-6 w-10 h-10 bg-do-co rounded-full flex items-center justify-center shadow-md">
-                                        <svg className="w-5 h-5 text-trang" fill="currentColor" viewBox="0 0 24 24">
+                                        <svg aria-hidden="true" className="w-5 h-5 text-trang" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                                         </svg>
                                     </div>
                                     {/* Stars */}
-                                    <div className="flex gap-1 mb-3 mt-2">
+                                    <div className="flex gap-1 mb-3 mt-2" role="img" aria-label={`Đánh giá ${t.rating} trên 5 sao`}>
                                         {Array.from({ length: t.rating }).map((_, i) => (
-                                            <span key={i} className="text-vang-kem text-[15px] drop-shadow-sm">⭐</span>
+                                            <span key={i} className="text-vang-kem text-[15px] drop-shadow-sm" aria-hidden="true">⭐</span>
                                         ))}
                                     </div>
                                     {/* Quote */}
@@ -51,7 +51,7 @@ export default function Testimonials() {
                                         </div>
                                         <div className="min-w-0 flex-1">
                                             <p className="font-semibold text-[15px] text-nau-dam leading-tight">{t.name}</p>
-                                            <p className="text-gray-500 text-[12px] mt-0.5">{t.role}</p>
+                                            <p className="text-gray-600 text-[12px] mt-0.5">{t.role}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,14 +68,14 @@ export default function Testimonials() {
                             >
                                 {/* Quote mark */}
                                 <div className="absolute -top-5 left-8 w-12 h-12 bg-do-co rounded-full flex items-center justify-center shadow-md">
-                                    <svg className="w-6 h-6 text-trang" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg aria-hidden="true" className="w-6 h-6 text-trang" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                                     </svg>
                                 </div>
                                 {/* Stars */}
-                                <div className="flex gap-1 mb-4 mt-2">
+                                <div className="flex gap-1 mb-4 mt-2" role="img" aria-label={`Đánh giá ${t.rating} trên 5 sao`}>
                                     {Array.from({ length: t.rating }).map((_, i) => (
-                                        <span key={i} className="text-vang-kem text-[16px] drop-shadow-sm">⭐</span>
+                                        <span key={i} className="text-vang-kem text-[16px] drop-shadow-sm" aria-hidden="true">⭐</span>
                                     ))}
                                 </div>
                                 {/* Quote */}
@@ -87,7 +87,7 @@ export default function Testimonials() {
                                     </div>
                                     <div className="min-w-0 flex-1">
                                         <p className="font-semibold text-nau-dam truncate">{t.name}</p>
-                                        <p className="text-gray-500 text-[12px] lg:text-sm truncate mt-0.5">{t.role}</p>
+                                        <p className="text-gray-600 text-[12px] lg:text-sm truncate mt-0.5">{t.role}</p>
                                     </div>
                                 </div>
                             </div>

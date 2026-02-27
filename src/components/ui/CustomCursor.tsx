@@ -15,8 +15,12 @@ export default function CustomCursor() {
     const pathname = usePathname();
 
     useEffect(() => {
-        // Check if device is touch-capable
-        if (window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window) {
+        // Check if device is touch-capable or user prefers reduced motion
+        if (
+            window.matchMedia("(pointer: coarse)").matches ||
+            "ontouchstart" in window ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
             setTimeout(() => setIsTouchDevice(true), 0);
             return;
         }
