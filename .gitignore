@@ -47,6 +47,5 @@ _agents/
 _agent/
 skills-lock.json
 AGENTS.md
-CLAUDE.md
 .claude/
 tasks/
