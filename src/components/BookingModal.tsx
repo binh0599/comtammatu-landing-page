@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 export default function BookingModal() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
     const triggerRef = useRef<Element | null>(null);
     const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -54,6 +55,7 @@ export default function BookingModal() {
 
     const handleClose = useCallback(() => {
         setIsOpen(false);
+        setIsSuccess(false);
         // Return focus to the element that triggered the modal
         requestAnimationFrame(() => {
             if (triggerRef.current instanceof HTMLElement) {
@@ -103,8 +105,28 @@ export default function BookingModal() {
                     </div>
                 </div>
 
+                {/* Success state */}
+                {isSuccess && (
+                    <div className="px-6 pb-8 flex flex-col items-center gap-4 text-center animate-fade-in-up">
+                        <div className="w-16 h-16 rounded-full bg-vang-kem/20 border-2 border-vang-kem flex items-center justify-center">
+                            <svg aria-hidden="true" className="w-8 h-8 text-vang-kem" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <p className="font-serif text-vang-kem text-xl">Đặt bàn thành công!</p>
+                        <p className="text-vang-kem/70 text-sm leading-relaxed">Chúng tôi sẽ liên hệ xác nhận bàn cho bạn sớm nhất.</p>
+                        <button
+                            onClick={handleClose}
+                            className="mt-2 w-full border border-vang-kem text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-base py-3 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
+                        >
+                            Đóng
+                        </button>
+                    </div>
+                )}
+
                 {/* Form */}
-                <form className="px-6 pb-8 space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Đặt bàn thành công!"); handleClose(); }}>
+                {!isSuccess && (
+                <form className="px-6 pb-8 space-y-4" onSubmit={(e) => { e.preventDefault(); setIsSuccess(true); }}>
                     <div>
                         <label htmlFor="booking-name" className="sr-only">Họ và Tên</label>
                         <div className="relative">
@@ -210,6 +232,7 @@ export default function BookingModal() {
                         Đặt Bàn Ngay
                     </button>
                 </form>
+                )}
             </div>
         </div>
     );

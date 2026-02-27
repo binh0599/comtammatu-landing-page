@@ -3,21 +3,29 @@ import { navLinks } from "@/lib/data";
 export default function Footer() {
     return (
         <footer id="footer" className="relative bg-[#1a1a1a] snap-end shrink-0 border-t border-vang-kem/20 overflow-hidden">
-            {/* Subtle Texture Overlay */}
-            <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/rice-paper.png')]" aria-hidden="true" />
+            {/* Subtle Texture Overlay — inline SVG noise, no external request */}
+            <div
+                className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none"
+                style={{
+                    backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E\")",
+                    backgroundRepeat: "repeat",
+                    backgroundSize: "200px 200px",
+                }}
+                aria-hidden="true"
+            />
 
             <div className="container mx-auto px-6 md:px-12 lg:px-24 py-16 md:py-24 relative z-10 text-vang-kem">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
                     {/* Brand Column */}
                     <div className="md:col-span-4 flex flex-col items-start gap-6 pr-4">
                         <div className="flex flex-col gap-2">
-                            <h2 className="font-serif text-4xl md:text-5xl leading-tight font-bold text-transparent bg-clip-text bg-gradient-to-r from-vang-kem via-[#cb9b51] to-vang-kem drop-shadow-sm">
+                            <h2 className="font-serif text-4xl md:text-5xl leading-tight font-bold text-transparent bg-clip-text bg-gradient-to-r from-vang-kem via-vang-kem/70 to-vang-kem drop-shadow-sm">
                                 Cơm Tấm<br />
                                 Má Tư
                             </h2>
                             <div className="h-0.5 w-16 bg-vang-kem/50 mt-2" aria-hidden="true"></div>
                         </div>
-                        <p className="text-vang-kem/80 text-lg leading-relaxed max-w-sm font-mulish font-light">
+                        <p className="text-vang-kem/80 text-lg leading-relaxed max-w-sm font-sans font-light">
                             Hương vị cơm tấm truyền thống Sài Gòn xưa được giữ gìn trọn vẹn trong từng nếp cơm, miếng sườn.
                         </p>
 
@@ -34,13 +42,13 @@ export default function Footer() {
                     </div>
 
                     {/* Navigation Column */}
-                    <nav aria-label="Liên kết nhanh" className="md:col-span-2 flex flex-col gap-5">
+                    <nav aria-label="Liên kết nhanh" className="md:col-span-2 flex flex-col gap-5 font-sans">
                         <h3 className="font-serif text-2xl mb-2 text-white">Khám phá</h3>
                         {navLinks.map((link) => (
                             <a
                                 key={link.label}
                                 href={link.href}
-                                className="text-vang-kem/80 font-mulish text-lg hover:text-white hover:translate-x-1 transition-all w-fit focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
+                                className="text-vang-kem/80 text-lg hover:text-white hover:translate-x-1 transition-all w-fit focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
                             >
                                 {link.label}
                             </a>
@@ -48,11 +56,11 @@ export default function Footer() {
                     </nav>
 
                     {/* Contact Info Column */}
-                    <div className="md:col-span-3 flex flex-col gap-5 font-mulish">
+                    <div className="md:col-span-3 flex flex-col gap-5 font-sans">
                         <h3 className="font-serif text-2xl mb-2 text-white">Liên hệ</h3>
 
                         <div className="flex items-start gap-3">
-                            <span className="text-[#cb9b51] mt-1 shrink-0" aria-hidden="true">
+                            <span className="text-vang-kem mt-1 shrink-0" aria-hidden="true">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" /></svg>
                             </span>
                             <span className="text-vang-kem/90 leading-relaxed text-[15px]">
@@ -61,7 +69,7 @@ export default function Footer() {
                         </div>
 
                         <div className="flex items-center gap-3">
-                            <span className="text-[#cb9b51] shrink-0" aria-hidden="true">
+                            <span className="text-vang-kem shrink-0" aria-hidden="true">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
                             </span>
                             <a href="tel:+84772818172" className="text-vang-kem/90 hover:text-white transition-colors text-[15px] font-medium tracking-wide focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none">
@@ -70,7 +78,7 @@ export default function Footer() {
                         </div>
 
                         <div className="flex items-start gap-3 mt-1">
-                            <span className="text-[#cb9b51] mt-0.5 shrink-0" aria-hidden="true">
+                            <span className="text-vang-kem mt-0.5 shrink-0" aria-hidden="true">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" /><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" /></svg>
                             </span>
                             <div className="flex flex-col text-[15px]">
@@ -100,7 +108,7 @@ export default function Footer() {
                             href="https://maps.google.com/maps?ll=10.494046,107.273046&z=16&t=m&hl=vi&gl=US&mapclient=embed&q=C%C6%A1m%20t%E1%BA%A5m%20M%C3%A1%20T%C6%B0"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-center mt-3 text-sm text-[#cb9b51] hover:text-white transition-colors underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
+                            className="text-center mt-3 text-sm text-vang-kem hover:text-white transition-colors underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
                         >
                             Xem trên Google Maps &rarr;
                         </a>
@@ -108,7 +116,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Row */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-vang-kem/10 font-mulish">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-vang-kem/10 font-sans">
                     <p className="text-vang-kem/80 text-sm">
                         © {new Date().getFullYear()} Cơm Tấm Má Tư. <span lang="en">All rights reserved.</span>
                     </p>

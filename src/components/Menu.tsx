@@ -6,22 +6,17 @@ import {
     menuGroups,
 } from "@/lib/data";
 
-const cardsData = menuGroups.map((group, index) => {
-    const imageSrc = group.img || "/images/logo.webp";
-    return {
-        id: `menu-group-${index}`,
-        title: group.title.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim(),
-        description: group.description || "Cơm Tấm tinh hoa ẩm thực Việt Nam với không gian ấm cúng, hoài cổ phong cách Indochine.",
-        basePrice: group.basePrice,
-        image: imageSrc,
-        items: group.items,
-    };
-});
+const cardsData = menuGroups.map((group, index) => ({
+    id: `menu-group-${index}`,
+    title: group.title.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim(),
+    description: group.description || "Cơm Tấm tinh hoa ẩm thực Việt Nam với không gian ấm cúng, hoài cổ phong cách Indochine.",
+    basePrice: group.basePrice,
+    image: group.img || "/images/logo.webp",
+    items: group.items,
+}));
 
 export default function Menu() {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-    const formatPriceText = (priceText: string) => priceText;
 
     return (
         <section
@@ -114,7 +109,7 @@ export default function Menu() {
                                         {card.basePrice && (
                                             <div className="m-auto shrink-0 py-5 border-t border-[#D4AF37]/20">
                                                 <p className="text-[#D4AF37] text-xl md:text-2xl lg:text-3xl font-mono tracking-wider font-bold">
-                                                    {formatPriceText(card.basePrice)}
+                                                    {card.basePrice}
                                                 </p>
                                             </div>
                                         )}
@@ -129,8 +124,6 @@ export default function Menu() {
                         ))}
                     </div>
                 </div>
-
-
 
             </div>
         </section>

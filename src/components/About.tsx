@@ -9,8 +9,16 @@ export default function About() {
         >
             {/* About Section - Super Clean Editorial Layout */}
             <section className="flex-1 min-h-0 relative overflow-hidden flex flex-col justify-center">
-                {/* Vintage Paper texture overlay */}
-                <div className="absolute inset-0 opacity-40 mix-blend-multiply pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cream-paper.png')" }} aria-hidden="true"></div>
+                {/* Vintage Paper texture overlay — inline SVG noise, no external request */}
+                <div
+                    className="absolute inset-0 opacity-30 mix-blend-multiply pointer-events-none"
+                    style={{
+                        backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E\")",
+                        backgroundRepeat: "repeat",
+                        backgroundSize: "200px 200px",
+                    }}
+                    aria-hidden="true"
+                />
 
                 <div className="flex-1 min-h-0 container mx-auto px-6 md:px-12 lg:px-20 max-w-6xl relative z-10 flex flex-col justify-center">
 
@@ -20,7 +28,7 @@ export default function About() {
                             <div className="relative w-full h-full max-w-sm lg:max-w-md mx-auto flex items-end justify-center">
 
                                 {/* The Arch Image Mask */}
-                                <div className="relative w-4/5 h-full overflow-hidden shadow-2xl border-[4px] border-[#cb9b51]/60" style={{ borderRadius: '400px 400px 0 0' }}>
+                                <div className="relative w-4/5 h-full overflow-hidden shadow-2xl border-[4px] border-vang-kem/60" style={{ borderRadius: '400px 400px 0 0' }}>
                                     <Image
                                         src="/images/space-2.webp"
                                         alt="Không gian Cơm tấm Má Tư"
@@ -37,7 +45,7 @@ export default function About() {
 
                                 {/* Floating 30 Years Badge */}
                                 <div className="absolute top-[10%] -right-4 md:-right-8 w-24 h-24 md:w-28 md:h-28 bg-[#8B0000] rounded-full flex flex-col items-center justify-center shadow-xl border-[2px] border-[#FAF6F0] z-30">
-                                    <p className="font-serif text-[#cb9b51] text-3xl md:text-4xl font-bold leading-none">30</p>
+                                    <p className="font-serif text-vang-kem text-3xl md:text-4xl font-bold leading-none">30</p>
                                     <p className="text-white/90 text-[8px] md:text-[9px] uppercase tracking-widest leading-[1.2] mt-1 text-center">Năm<br />Gia Truyền</p>
                                 </div>
                             </div>
@@ -54,7 +62,7 @@ export default function About() {
                             <div className="relative z-10 flex flex-col min-h-0">
                                 {/* Eyebrow / Subhead */}
                                 <div className="flex items-center gap-3 mb-2 md:mb-4">
-                                    <div className="w-10 h-[1px] bg-[#cb9b51]" aria-hidden="true"></div>
+                                    <div className="w-10 h-[1px] bg-vang-kem" aria-hidden="true"></div>
                                     <p className="text-[#8B0000] font-bold tracking-[0.25em] uppercase text-[10px] md:text-sm">
                                         Câu Chuyện
                                     </p>
@@ -72,7 +80,7 @@ export default function About() {
                                         Sinh ra từ gian bếp nhỏ vương màu khói lửa Sài Gòn xưa, <strong className="text-[#8B0000] font-semibold">Cơm Tấm Má Tư</strong> không đơn thuần là một món ăn, mà là sợi dây vô hình kết nối quá khứ và hiện tại. Lửa lò nướng sườn của Má chưa bao giờ tắt, vẫn vẹn nguyên công thức ướp bí truyền suốt ba thập kỷ để mang đến đĩa <strong className="text-[#8B0000] font-semibold">cơm tấm ngon nhất Bà Rịa</strong>.
                                     </p>
                                     <p>
-                                        Từng hạt tấm tơi xốp quấn quýt bên miếng sườn nướng than hoa cháy cạnh, tươm mỡ vàng óng từ nguồn <span className="font-semibold text-[#8B0000]">thịt tươi 100%</span>. Miếng chả trứng chưng thịt đẫm vị, hòa quyện cùng thìa nước mắm chua ngọt sánh dẻo pha theo một <span className="italic font-serif text-[#cb9b51] font-bold">tỷ lệ vàng</span>.
+                                        Từng hạt tấm tơi xốp quấn quýt bên miếng sườn nướng than hoa cháy cạnh, tươm mỡ vàng óng từ nguồn <span className="font-semibold text-do-co">thịt tươi 100%</span>. Miếng chả trứng chưng thịt đẫm vị, hòa quyện cùng thìa nước mắm chua ngọt sánh dẻo pha theo một <span className="italic font-serif text-vang-kem font-bold">tỷ lệ vàng</span>.
                                     </p>
                                     <p className="hidden sm:block">
                                         Đến với Má Tư, bạn không chỉ thưởng thức trọn vẹn tinh hoa ẩm thực đường phố của một quán <strong className="text-[#8B0000]">Cơm tấm Vũng Tàu</strong>, mà còn tìm về một góc bình yên, nơi bữa cơm ân cần, ấm áp như tay Mẹ nấu.

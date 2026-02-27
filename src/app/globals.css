@@ -286,7 +286,7 @@ body {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, var(--color-vang-kem) 0%, #fff 50%, var(--color-vang-kem) 100%);
+  background: linear-gradient(90deg, var(--color-vang-kem) 0%, var(--color-trang) 50%, var(--color-vang-kem) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -424,7 +424,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-do-co);
+  background: linear-gradient(180deg, var(--color-do-nhat), var(--color-vang-kem));
 }
 
 /* Ẩn scrollbar cho class cụ thể */
@@ -522,27 +522,27 @@ body {
 
 /* Section-level custom delays */
 .reveal-delay-1 {
-  transition-delay: 0.1s !important;
+  transition-delay: 0.1s;
 }
 
 .reveal-delay-2 {
-  transition-delay: 0.2s !important;
+  transition-delay: 0.2s;
 }
 
 .reveal-delay-3 {
-  transition-delay: 0.3s !important;
+  transition-delay: 0.3s;
 }
 
 .reveal-delay-4 {
-  transition-delay: 0.4s !important;
+  transition-delay: 0.4s;
 }
 
 .reveal-delay-5 {
-  transition-delay: 0.55s !important;
+  transition-delay: 0.55s;
 }
 
 .reveal-delay-6 {
-  transition-delay: 0.7s !important;
+  transition-delay: 0.7s;
 }
 
 /* ── Legacy alias so existing .section-reveal still works ── */
@@ -670,14 +670,6 @@ body {
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* ============ RESPONSIVE HELPERS ============ */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.8rem !important;
-    line-height: 1.1 !important;
-  }
 }
 
 /* ============ REDUCED MOTION ============ */

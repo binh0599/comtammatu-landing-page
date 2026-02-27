@@ -43,15 +43,15 @@ export default function Testimonials() {
                                         ))}
                                     </div>
                                     {/* Quote */}
-                                    <p className="text-[14px] text-gray-700 leading-relaxed mb-4 italic flex-1">&ldquo;{t.quote}&rdquo;</p>
-                                    {/* Author */}
-                                    <div className="flex items-center gap-3 mt-auto pt-4 border-t border-do-co/10">
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-do-co to-[#A22] flex items-center justify-center text-trang font-bold text-base shadow-inner shrink-0">
-                                            {t.name.charAt(0)}
-                                        </div>
-                                        <div className="min-w-0 flex-1">
-                                            <p className="font-semibold text-[15px] text-nau-dam leading-tight">{t.name}</p>
-                                            <p className="text-gray-600 text-[12px] mt-0.5">{t.role}</p>
+                                     <p className="text-[14px] text-nau-go leading-relaxed mb-4 italic flex-1">&ldquo;{t.quote}&rdquo;</p>
+                                     {/* Author */}
+                                     <div className="flex items-center gap-3 mt-auto pt-4 border-t border-do-co/10">
+                                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-do-co to-[#A22] flex items-center justify-center text-trang font-bold text-base shadow-inner shrink-0">
+                                             {t.name.charAt(0)}
+                                         </div>
+                                         <div className="min-w-0 flex-1">
+                                             <p className="font-semibold text-[15px] text-nau-dam leading-tight">{t.name}</p>
+                                             <p className="text-nau-go/70 text-[12px] mt-0.5">{t.role}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@ export default function Testimonials() {
                                     ))}
                                 </div>
                                 {/* Quote */}
-                                <p className="text-sm lg:text-[15px] text-gray-700 leading-relaxed mb-6 italic flex-1">&ldquo;{t.quote}&rdquo;</p>
+                                <p className="text-sm lg:text-[15px] text-nau-go leading-relaxed mb-6 italic flex-1">&ldquo;{t.quote}&rdquo;</p>
                                 {/* Author */}
                                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-do-co/10">
                                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-do-co to-[#A22] flex items-center justify-center text-trang font-bold text-lg shadow-inner shrink-0">
@@ -87,7 +87,7 @@ export default function Testimonials() {
                                     </div>
                                     <div className="min-w-0 flex-1">
                                         <p className="font-semibold text-nau-dam truncate">{t.name}</p>
-                                        <p className="text-gray-600 text-[12px] lg:text-sm truncate mt-0.5">{t.role}</p>
+                                        <p className="text-nau-go/70 text-[12px] lg:text-sm truncate mt-0.5">{t.role}</p>
                                     </div>
                                 </div>
                             </div>

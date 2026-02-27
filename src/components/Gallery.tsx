@@ -24,7 +24,7 @@ export default function Gallery() {
                         <h2 className="font-serif text-3xl md:text-5xl text-vang-kem mb-2 md:mb-4 text-balance">
                             Không Gian & Bầu <span className="text-trang">Không Khí</span>
                         </h2>
-                        <div className="decorative-line-center bg-vang-kem" />
+                        <div className="decorative-line-center" />
                     </div>
 
                     <div className="flex-1 min-h-0 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 reveal-fade mb-6 md:mb-10 w-full h-[50vh] md:h-auto overflow-hidden">
