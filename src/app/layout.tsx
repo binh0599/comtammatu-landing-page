@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://comtammatu.com"),
   title: "Cơm tấm Má Tư | Cơm tấm ngon nhất Bà Rịa - Vũng Tàu",
   description:
-    "Cơm tấm Má Tư - Cơm tấm ngon nhất Bà Rịa, Vũng Tàu. Phục vụ đĩa cơm tấm truyền thống với thịt tươi 100% trong không gian Indochine ấm cúng tại Đất Đỏ. Đặt bàn: 0772818172",
+    "Cơm tấm Má Tư - Cơm tấm ngon nhất Bà Rịa, Vũng Tàu. Phục vụ đĩa cơm tấm truyền thống với thịt tươi 100% trong không gian Indochine ấm cúng tại Đất Đỏ.",
   keywords:
     "cơm tấm, cơm tấm Má Tư, cơm tấm Bà Rịa, Cơm tấm Vũng Tàu, cơm tấm ngon nhất Bà Rịa, thịt tươi 100%, ẩm thực Việt Nam, đặc sản Việt, Indochine, Đất Đỏ, sườn cốt lết",
   robots: {
