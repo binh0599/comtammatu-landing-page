@@ -3,8 +3,8 @@ import { navLinks } from "@/lib/data";
 export default function Footer() {
     return (
         <footer id="footer" className="relative bg-[#1a1a1a] snap-end shrink-0 border-t border-vang-kem/20 overflow-hidden">
-            {/* Subtle Texture Overlay */}
-            <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/rice-paper.png')]" aria-hidden="true" />
+            {/* Subtle Texture Overlay — self-hosted SVG noise */}
+            <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")` }} aria-hidden="true" />
 
             <div className="container mx-auto px-6 md:px-12 lg:px-24 py-16 md:py-24 relative z-10 text-vang-kem">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">

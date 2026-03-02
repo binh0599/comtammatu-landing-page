@@ -61,7 +61,7 @@ export interface Testimonial {
 
 export const menuGroups: MenuGroup[] = [
     {
-        title: "🍖 Cơm Sườn Cốt Lết",
+        title: "Cơm Sườn Cốt Lết",
         description: "Sườn mềm nướng than hoa thơm lừng bề mặt xém cạnh, chuẩn vị Sài Thành.",
         img: "/images/com_suon_cot_let.webp",
         basePrice: "35.000₫",
@@ -73,7 +73,7 @@ export const menuGroups: MenuGroup[] = [
         ],
     },
     {
-        title: "🥩 Cơm Sườn Cây",
+        title: "Cơm Sườn Cây",
         description: "Bẹ sườn nguyên cây thịt dày, cắn ngập vị đậm đà cùng lớp mỡ béo ngậy xen kẽ.",
         img: "/images/com_suon_cay.webp",
         basePrice: "40.000₫",
@@ -85,7 +85,7 @@ export const menuGroups: MenuGroup[] = [
         ],
     },
     {
-        title: "🍚 Cơm Tấm",
+        title: "Cơm Tấm",
         description: "Hạt tấm tơi xốp truyền thống rưới mỡ hành, hòa quyện cùng nước mắm chua ngọt.",
         img: null,
         basePrice: null,

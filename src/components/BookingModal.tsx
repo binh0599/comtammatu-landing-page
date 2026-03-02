@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 export default function BookingModal() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
     const triggerRef = useRef<Element | null>(null);
     const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -49,7 +50,7 @@ export default function BookingModal() {
 
         document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
     const handleClose = useCallback(() => {
@@ -104,7 +105,15 @@ export default function BookingModal() {
                 </div>
 
                 {/* Form */}
-                <form className="px-6 pb-8 space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Đặt bàn thành công!"); handleClose(); }}>
+                <form className="px-6 pb-8 space-y-4" onSubmit={async (e) => {
+                    e.preventDefault();
+                    setIsSubmitting(true);
+                    // Simulate async submission
+                    await new Promise(resolve => setTimeout(resolve, 1200));
+                    setIsSubmitting(false);
+                    alert("Đặt bàn thành công!");
+                    handleClose();
+                }}>
                     <div>
                         <label htmlFor="booking-name" className="sr-only">Họ và Tên</label>
                         <div className="relative">
@@ -205,9 +214,19 @@ export default function BookingModal() {
 
                     <button
                         type="submit"
-                        className="w-full bg-vang-kem/10 border border-vang-kem text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-lg py-3 mt-4 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
+                        disabled={isSubmitting}
+                        className={`w-full border border-vang-kem font-serif text-lg py-3 mt-4 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 ${isSubmitting
+                                ? 'bg-vang-kem/5 text-vang-kem/50 cursor-not-allowed'
+                                : 'bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co cursor-pointer'
+                            }`}
                     >
-                        Đặt Bàn Ngay
+                        {isSubmitting && (
+                            <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                            </svg>
+                        )}
+                        {isSubmitting ? 'Đang gửi...' : 'Đặt Bàn Ngay'}
                     </button>
                 </form>
             </div>
