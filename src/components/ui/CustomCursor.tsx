@@ -1,101 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useCustomCursor } from "@/lib/hooks";
 
 export default function CustomCursor() {
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [isHovering, setIsHovering] = useState(false);
-    const [hoveredElement, setHoveredElement] = useState<{ rect: DOMRect, borderRadius: string } | null>(null);
-    const [isClicking, setIsClicking] = useState(false);
-    const [isHidden, setIsHidden] = useState(false);
-
-    // Don't render on mobile/touch devices
-    const [isTouchDevice, setIsTouchDevice] = useState(false);
     const pathname = usePathname();
-
-    useEffect(() => {
-        // Check if device is touch-capable or user prefers reduced motion
-        if (
-            window.matchMedia("(pointer: coarse)").matches ||
-            "ontouchstart" in window ||
-            window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ) {
-            setTimeout(() => setIsTouchDevice(true), 0);
-            return;
-        }
-
-        const handleMouseMove = (e: MouseEvent) => {
-            setPosition({ x: e.clientX, y: e.clientY });
-            // Show cursor if it was hidden (e.g., when mouse left window)
-            if (isHidden) setIsHidden(false);
-        };
-
-        const handleMouseDown = () => setIsClicking(true);
-        const handleMouseUp = () => setIsClicking(false);
-
-        const handleMouseEnter = () => setIsHidden(false);
-        const handleMouseLeave = () => setIsHidden(true);
-
-        // Define hover targets
-        const addHoverListeners = () => {
-            const interactables = document.querySelectorAll(
-                'a, button, input, select, textarea, [role="button"], .cursor-pointer'
-            );
-
-            interactables.forEach((el) => {
-                // Ensure we don't attach multiple listeners to the same element
-                if (el.getAttribute('data-cursor-attached')) return;
-
-                el.setAttribute('data-cursor-attached', 'true');
-
-                el.addEventListener("mouseenter", (e) => {
-                    const target = e.currentTarget as HTMLElement;
-                    const rect = target.getBoundingClientRect();
-                    // Get computed border radius of the target element
-                    const computedStyle = window.getComputedStyle(target);
-                    const borderRadius = computedStyle.borderRadius;
-
-                    setHoveredElement({ rect, borderRadius });
-                    setIsHovering(true);
-                });
-
-                el.addEventListener("mouseleave", () => {
-                    setHoveredElement(null);
-                    setIsHovering(false);
-                });
-            });
-        };
-
-        // Add core listeners
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mousedown", handleMouseDown);
-        window.addEventListener("mouseup", handleMouseUp);
-        document.addEventListener("mouseenter", handleMouseEnter);
-        document.addEventListener("mouseleave", handleMouseLeave);
-
-        // Setup initial hover targets
-        addHoverListeners();
-
-        // Use MutationObserver to detect dynamically added elements
-        const observer = new MutationObserver(() => {
-            addHoverListeners();
-        });
-
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-        });
-
-        return () => {
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mousedown", handleMouseDown);
-            window.removeEventListener("mouseup", handleMouseUp);
-            document.removeEventListener("mouseenter", handleMouseEnter);
-            document.removeEventListener("mouseleave", handleMouseLeave);
-            observer.disconnect();
-        };
-    }, [pathname, isHidden]); // Re-bind hover listeners when route changes
+    const {
+        position,
+        isHovering,
+        hoveredElement,
+        isClicking,
+        isHidden,
+        isTouchDevice
+    } = useCustomCursor(pathname);
 
     if (isTouchDevice) return null;
 

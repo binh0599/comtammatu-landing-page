@@ -3,6 +3,7 @@ import { Philosopher, Mulish } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
+import { jsonLd } from "@/lib/seo";
 
 const philosopher = Philosopher({
   variable: "--font-philosopher",
@@ -54,50 +55,6 @@ export const metadata: Metadata = {
     description:
       "Cơm tấm truyền thống với thịt tươi 100% trong không gian Indochine ấm cúng. QL55, Đất Đỏ, Bà Rịa - Vũng Tàu",
     images: ["/images/space-1.webp"],
-  },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  name: "Cơm tấm Má Tư",
-  description: "Quán cơm tấm ngon nhất Bà Rịa - Vũng Tàu, phục vụ các món cơm tấm truyền thống với thịt tươi 100% trong không gian Indochine ấm cúng.",
-  image: "https://comtammatu.com/images/space-1.webp",
-  url: "https://comtammatu.com",
-  telephone: "+84772818172",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "QL55, TT.Đất Đỏ",
-    addressLocality: "Bà Rịa",
-    addressRegion: "Bà Rịa - Vũng Tàu",
-    postalCode: "70000",
-    addressCountry: "VN",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 10.4933,
-    longitude: 107.1081,
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "06:00",
-    closes: "22:00",
-  },
-  servesCuisine: "Vietnamese",
-  priceRange: "₫",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "50000",
   },
 };
 
