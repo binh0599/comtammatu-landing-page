@@ -23,12 +23,12 @@ export default function Footer() {
 
                         <div className="flex gap-4 mt-2">
                             {/* Facebook icon */}
-                            <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full border border-vang-kem/30 flex items-center justify-center text-vang-kem hover:bg-vang-kem hover:text-[#1a1a1a] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none">
+                            <a href="https://www.facebook.com/profile.php?id=61587525182986" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full border border-vang-kem/30 flex items-center justify-center text-vang-kem hover:bg-vang-kem hover:text-[#1a1a1a] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none">
                                 <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                             </a>
-                            {/* Instagram icon */}
-                            <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full border border-vang-kem/30 flex items-center justify-center text-vang-kem hover:bg-vang-kem hover:text-[#1a1a1a] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none">
-                                <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
+                            {/* TikTok icon */}
+                            <a href="https://www.tiktok.com/@taimatu2000" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-10 h-10 rounded-full border border-vang-kem/30 flex items-center justify-center text-vang-kem hover:bg-vang-kem hover:text-[#1a1a1a] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none">
+                                <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.68a6.34 6.34 0 006.35 6.32 6.32 6.32 0 006.31-6.24v-6.66a8.21 8.21 0 004.34 1.25v-3.46a4.81 4.81 0 01-2.41-.66z" /></svg>
                             </a>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ export default function Footer() {
                             ></iframe>
                         </div>
                         <a
-                            href="https://maps.google.com/maps?ll=10.494046,107.273046&z=16&t=m&hl=vi&gl=US&mapclient=embed&q=C%C6%A1m%20t%E1%BA%A5m%20M%C3%A1%20T%C6%B0"
+                            href="https://maps.app.goo.gl/6XZkDT6eHD553s639"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-center mt-3 text-sm text-[#cb9b51] hover:text-white transition-colors underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
