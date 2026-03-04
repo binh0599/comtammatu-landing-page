@@ -98,15 +98,8 @@ body {
 
 /* Hide default cursor only on desktop with no reduced-motion preference */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  body,
-  a,
-  button,
-  input,
-  select,
-  textarea,
-  [role="button"],
-  .cursor-pointer {
-    cursor: none !important;
+  body {
+    cursor: none;
   }
 }
 
@@ -466,6 +459,7 @@ body {
 
 /* ============ SCROLLBAR ============ */
 ::-webkit-scrollbar {
+  height: 6px;
   width: 6px;
 }
 
@@ -646,7 +640,7 @@ body {
 }
 
 .img-zoom {
-  transition: transform 0.6s ease;
+  transition: transform 0.3s ease;
 }
 
 .img-zoom:hover {
@@ -659,7 +653,7 @@ body {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-premium:hover {

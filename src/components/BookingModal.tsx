@@ -18,7 +18,7 @@ const BookingInputField = ({ id, label, icon, ...props }: BookingInputFieldProps
             </span>
             <input
                 id={id}
-                className="w-full bg-transparent border border-vang-kem/40 rounded-lg py-3 pl-10 pr-4 text-trang placeholder-vang-kem/50 focus:outline-none focus:border-vang-kem focus-visible:ring-2 focus-visible:ring-vang-kem transition-colors [color-scheme:dark]"
+                className="w-full bg-black/10 border border-vang-kem/40 rounded-lg py-3 pl-10 pr-4 text-trang placeholder-vang-kem/50 focus:outline-none focus:border-vang-kem focus-visible:ring-2 focus-visible:ring-vang-kem transition-colors [color-scheme:dark]"
                 {...props}
             />
         </div>
@@ -128,15 +128,15 @@ export default function BookingModal() {
                                 id="booking-guests"
                                 required
                                 defaultValue=""
-                                className="w-full bg-do-co border border-vang-kem/40 rounded-lg py-3 pl-10 pr-4 text-trang focus:outline-none focus:border-vang-kem focus-visible:ring-2 focus-visible:ring-vang-kem transition-colors appearance-none"
+                                className="w-full bg-black/10 border border-vang-kem/40 rounded-lg py-3 pl-10 pr-4 text-trang focus:outline-none focus:border-vang-kem focus-visible:ring-2 focus-visible:ring-vang-kem transition-colors appearance-none"
                             >
-                                <option value="" disabled hidden>Số Lượng Khách</option>
-                                <option value="1">1 Người</option>
-                                <option value="2">2 Người</option>
-                                <option value="3">3 Người</option>
-                                <option value="4">4 Người</option>
-                                <option value="5-8">5 - 8 Người</option>
-                                <option value="9+">Trên 8 Người</option>
+                                <option value="" disabled hidden className="bg-do-co">Số Lượng Khách</option>
+                                <option value="1" className="bg-do-co">1 Người</option>
+                                <option value="2" className="bg-do-co">2 Người</option>
+                                <option value="3" className="bg-do-co">3 Người</option>
+                                <option value="4" className="bg-do-co">4 Người</option>
+                                <option value="5-8" className="bg-do-co">5 - 8 Người</option>
+                                <option value="9+" className="bg-do-co">Trên 8 Người</option>
                             </select>
                             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-vang-kem/60 pointer-events-none" aria-hidden="true">
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -127,7 +127,7 @@ export default function Menu() {
                         aria-label="Danh sách món ăn — cuộn ngang"
                         tabIndex={0}
                         onKeyDown={handleKeyDown}
-                        className="w-full max-w-[1100px] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pt-[55px] md:pt-[70px] lg:pt-[80px] px-4 md:px-0 -mx-4 md:mx-0 gap-5 md:gap-6 lg:gap-8 justify-start md:justify-center relative z-20 h-full max-h-[500px] lg:max-h-[550px] focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none rounded-lg"
+                        className="w-full max-w-[1100px] flex overflow-x-auto snap-x snap-mandatory pt-[55px] md:pt-[70px] lg:pt-[80px] px-4 md:px-0 -mx-4 md:mx-0 pb-4 gap-5 md:gap-6 lg:gap-8 justify-start md:justify-center relative z-20 h-full max-h-[500px] lg:max-h-[550px] focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none rounded-lg"
                     >
                         {cardsData.map((card) => (
                             <MenuCard key={card.id} card={card} />

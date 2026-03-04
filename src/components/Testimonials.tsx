@@ -22,7 +22,7 @@ export default function Testimonials() {
                 {/* Content flex wrapper */}
                 <div className="w-full">
                     {/* ── Mobile carousel (hidden trên md+) ── */}
-                    <div className="md:hidden w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory px-4 -mx-4 pb-4 pt-4 relative">
+                    <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory px-4 -mx-4 pb-4 pt-4 relative">
                         {/* Wrapper for smooth scrolling & snap */}
                         <div className="flex items-center gap-4 w-max mx-auto px-4">
                             {testimonials.map((t, idx) => (
@@ -39,7 +39,7 @@ export default function Testimonials() {
                                     {/* Stars */}
                                     <div className="flex gap-1 mb-3 mt-2" role="img" aria-label={`Đánh giá ${t.rating} trên 5 sao`}>
                                         {Array.from({ length: t.rating }).map((_, i) => (
-                                            <svg key={i} aria-hidden="true" className="w-4 h-4 text-vang-kem drop-shadow-sm" viewBox="0 0 20 20" fill="currentColor">
+                                            <svg key={i} aria-hidden="true" className="w-4 h-4 text-[#C28E3A] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" viewBox="0 0 20 20" fill="currentColor">
                                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                             </svg>
                                         ))}
@@ -77,7 +77,7 @@ export default function Testimonials() {
                                 {/* Stars */}
                                 <div className="flex gap-1 mb-4 mt-2" role="img" aria-label={`Đánh giá ${t.rating} trên 5 sao`}>
                                     {Array.from({ length: t.rating }).map((_, i) => (
-                                        <svg key={i} aria-hidden="true" className="w-[18px] h-[18px] text-vang-kem drop-shadow-sm" viewBox="0 0 20 20" fill="currentColor">
+                                        <svg key={i} aria-hidden="true" className="w-[18px] h-[18px] text-[#C28E3A] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" viewBox="0 0 20 20" fill="currentColor">
                                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                         </svg>
                                     ))}
