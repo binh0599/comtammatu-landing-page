@@ -116,6 +116,9 @@ export default function About() {
                                             <span className="font-bold">Hoàng</span> <span className="text-[#cb9b51]/70 mx-1.5 italic font-light">&amp;</span>
                                             <span className="font-bold">Hậu</span>
                                         </p>
+                                        <p className="mt-2 text-[#4a4238] font-sans text-[10px] sm:text-[11px] leading-[1.6] max-w-[280px] sm:max-w-xs italic opacity-95">
+                                            "Khởi nghiệp bằng chữ Tài, giữ vững bằng chữ Bình, tỏa sáng thời kỳ Hoàng Kim và gặt hái phúc đức về Hậu."
+                                        </p>
                                     </div>
 
                                     {/* Stats */}
