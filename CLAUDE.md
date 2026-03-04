@@ -10,14 +10,14 @@ Landing page website for **Cơm Tấm Má Tư**, a Vietnamese broken rice restau
 
 ## Tech Stack
 
-| Technology       | Version | Purpose                        |
-|------------------|---------|--------------------------------|
-| Next.js          | 16.x    | App Router, SSR, image optimization |
-| React            | 19.x    | UI library                     |
-| TypeScript       | 5.x     | Type safety (strict mode)      |
-| Tailwind CSS     | 4.x     | Utility-first styling          |
-| PostCSS          | —       | Tailwind integration           |
-| Vercel Speed Insights | 1.x | Performance monitoring        |
+| Technology            | Version | Purpose                             |
+|-----------------------|---------|-------------------------------------|
+| Next.js               | 16.x    | App Router, SSR, image optimization |
+| React                 | 19.x    | UI library                          |
+| TypeScript            | 5.x     | Type safety (strict mode)           |
+| Tailwind CSS          | 4.x     | Utility-first styling               |
+| PostCSS               | —       | Tailwind integration                |
+| Vercel Analytics       | 1.x    | Traffic & event analytics           |
 
 ## Commands
 
@@ -25,7 +25,7 @@ Landing page website for **Cơm Tấm Má Tư**, a Vietnamese broken rice restau
 npm run dev      # Start dev server on localhost:3000
 npm run build    # Production build
 npm run start    # Serve production build
-npm run lint     # Run ESLint (flat config, Core Web Vitals + TypeScript rules)
+npm run lint     # Run ESLint (flat config, Core Web Vitals + TypeScript)
 ```
 
 **Always run `npm run lint` before committing.** There is no test framework configured.
