@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Philosopher, Mulish } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 import { jsonLd } from "@/lib/seo";
@@ -83,6 +84,7 @@ export default function RootLayout({
       >
         <CustomCursor />
         {children}
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
