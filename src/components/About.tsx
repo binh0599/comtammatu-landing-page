@@ -103,31 +103,32 @@ export default function About() {
                                     </p>
                                 </div>
 
-                                {/* Founding Team & Stats */}
-                                <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 pb-4">
-                                    <div className="flex flex-col justify-center border-l-2 border-[#cb9b51] pl-3 transition-colors hover:border-[#8B0000]">
-                                        <span className="text-xl font-serif font-bold text-[#8B0000]">Tài</span>
+                                {/* Story Footer: Founders & Stats */}
+                                <div className="mt-8 pt-5 border-t border-[#cb9b51]/30 flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-2">
+                                    {/* Founders */}
+                                    <div className="flex flex-col">
+                                        <span className="text-[9px] text-[#cb9b51] uppercase tracking-[0.25em] font-bold mb-1">
+                                            Đội ngũ sáng lập
+                                        </span>
+                                        <p className="font-serif text-xl sm:text-2xl text-[#8B0000] tracking-wide">
+                                            <span className="font-bold">Tài</span> <span className="text-[#cb9b51]/70 mx-1.5 italic font-light">&amp;</span>
+                                            <span className="font-bold">Bình</span> <span className="text-[#cb9b51]/70 mx-1.5 italic font-light">&amp;</span><br className="sm:hidden" />
+                                            <span className="font-bold">Hoàng</span> <span className="text-[#cb9b51]/70 mx-1.5 italic font-light">&amp;</span>
+                                            <span className="font-bold">Hậu</span>
+                                        </p>
                                     </div>
-                                    <div className="flex flex-col justify-center border-l-2 border-[#cb9b51] pl-3 transition-colors hover:border-[#8B0000]">
-                                        <span className="text-xl font-serif font-bold text-[#8B0000]">Bình</span>
-                                    </div>
-                                    <div className="flex flex-col justify-center border-l-2 border-[#cb9b51] pl-3 transition-colors hover:border-[#8B0000]">
-                                        <span className="text-xl font-serif font-bold text-[#8B0000]">Hoàng</span>
-                                    </div>
-                                    <div className="flex flex-col justify-center border-l-2 border-[#cb9b51] pl-3 transition-colors hover:border-[#8B0000]">
-                                        <span className="text-xl font-serif font-bold text-[#8B0000]">Hậu</span>
-                                    </div>
-                                </div>
 
-                                <div className="flex items-center gap-6 border-t border-[#cb9b51]/30 pt-5 mt-2">
-                                    <div className="flex flex-col">
-                                        <span className="text-3xl font-serif text-[#2a231d] font-bold leading-none">01</span>
-                                        <span className="text-[10px] text-[#8B0000] uppercase tracking-widest font-semibold mt-1">Chi nhánh</span>
-                                    </div>
-                                    <div className="w-[1px] h-10 bg-[#cb9b51]/40"></div>
-                                    <div className="flex flex-col">
-                                        <span className="text-3xl font-serif text-[#2a231d] font-bold leading-none">10</span>
-                                        <span className="text-[10px] text-[#8B0000] uppercase tracking-widest font-semibold mt-1">Nhân viên</span>
+                                    {/* Stats */}
+                                    <div className="flex items-center gap-5 sm:gap-6">
+                                        <div className="flex flex-col sm:items-end">
+                                            <span className="text-3xl sm:text-4xl font-serif text-[#2a231d] font-bold leading-none tracking-tight">01</span>
+                                            <span className="text-[9px] text-[#8B0000] uppercase tracking-widest font-semibold mt-1">Chi nhánh</span>
+                                        </div>
+                                        <div className="w-[1px] h-10 bg-[#cb9b51]/40"></div>
+                                        <div className="flex flex-col">
+                                            <span className="text-3xl sm:text-4xl font-serif text-[#2a231d] font-bold leading-none tracking-tight">10<span className="text-[#cb9b51] text-2xl sm:text-3xl ml-0.5">+</span></span>
+                                            <span className="text-[9px] text-[#8B0000] uppercase tracking-widest font-semibold mt-1">Nhân sự</span>
+                                        </div>
                                     </div>
                                 </div>
 
