@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { useModal } from "@/lib/hooks";
 
 interface BookingInputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -25,14 +25,139 @@ const BookingInputField = ({ id, label, icon, ...props }: BookingInputFieldProps
     </div>
 );
 
+function buildZaloUrl(form: HTMLFormElement): string {
+    const name = (form.elements.namedItem("booking-name") as HTMLInputElement).value;
+    const phone = (form.elements.namedItem("booking-phone") as HTMLInputElement).value;
+    const date = (form.elements.namedItem("booking-date") as HTMLInputElement).value;
+    const time = (form.elements.namedItem("booking-time") as HTMLInputElement).value;
+    const guests = (form.elements.namedItem("booking-guests") as HTMLSelectElement).value;
+    const message = `🍽️ ĐẶT BÀN - Cơm Tấm Má Tư\n\n👤 Tên: ${name}\n📞 SĐT: ${phone}\n📅 Ngày: ${date}\n⏰ Giờ: ${time}\n👥 Số khách: ${guests}`;
+    return `https://zalo.me/0772818172?text=${encodeURIComponent(message)}`;
+}
+
+/**
+ * Inner form component — unmounts when modal closes, so showFallback
+ * resets automatically on every close path (Escape, backdrop, button).
+ */
+function BookingForm({ onClose }: { onClose: () => void }) {
+    const [showFallback, setShowFallback] = useState(false);
+    const formRef = useRef<HTMLFormElement>(null);
+
+    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const zaloUrl = buildZaloUrl(e.currentTarget);
+        const win = window.open(zaloUrl, "_blank", "noopener,noreferrer");
+
+        if (win) {
+            onClose();
+        } else {
+            // Popup was blocked — show fallback button
+            setShowFallback(true);
+        }
+    }, [onClose]);
+
+    const handleFallbackClick = useCallback(() => {
+        if (formRef.current) {
+            window.open(buildZaloUrl(formRef.current), "_blank", "noopener,noreferrer");
+        }
+        onClose();
+    }, [onClose]);
+
+    return (
+        <form ref={formRef} className="px-6 pb-8 space-y-4" onSubmit={handleSubmit}>
+            <BookingInputField
+                id="booking-name"
+                label="Họ và Tên"
+                type="text"
+                placeholder="Họ và Tên"
+                required
+                autoComplete="name"
+                icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>}
+            />
+
+            <BookingInputField
+                id="booking-phone"
+                label="Số Điện Thoại"
+                type="tel"
+                placeholder="Số Điện Thoại"
+                required
+                autoComplete="tel"
+                icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>}
+            />
+
+            <BookingInputField
+                id="booking-date"
+                label="Ngày đặt bàn"
+                type="date"
+                required
+                icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>}
+            />
+
+            <BookingInputField
+                id="booking-time"
+                label="Giờ đặt bàn"
+                type="time"
+                required
+                icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+            />
+
+            <div>
+                <label htmlFor="booking-guests" className="sr-only">Số Lượng Khách</label>
+                <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-vang-kem/60" aria-hidden="true">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </span>
+                    <select
+                        id="booking-guests"
+                        required
+                        defaultValue=""
+                        className="w-full bg-black/10 border border-vang-kem/40 rounded-lg py-3 pl-10 pr-4 text-trang focus:outline-none focus:border-vang-kem focus-visible:ring-2 focus-visible:ring-vang-kem transition-colors appearance-none"
+                    >
+                        <option value="" disabled hidden className="bg-do-co">Số Lượng Khách</option>
+                        <option value="1" className="bg-do-co">1 Người</option>
+                        <option value="2" className="bg-do-co">2 Người</option>
+                        <option value="3" className="bg-do-co">3 Người</option>
+                        <option value="4" className="bg-do-co">4 Người</option>
+                        <option value="5-8" className="bg-do-co">5 - 8 Người</option>
+                        <option value="9+" className="bg-do-co">Trên 8 Người</option>
+                    </select>
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-vang-kem/60 pointer-events-none" aria-hidden="true">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            {showFallback ? (
+                <div className="mt-4 space-y-3">
+                    <p className="text-vang-kem/80 text-sm text-center">
+                        Trình duyệt đã chặn cửa sổ Zalo. Nhấn nút bên dưới để mở:
+                    </p>
+                    <button
+                        type="button"
+                        className="w-full border border-vang-kem bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-lg py-3 mt-2 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 cursor-pointer"
+                        onClick={handleFallbackClick}
+                    >
+                        Mở Zalo để đặt bàn
+                    </button>
+                </div>
+            ) : (
+                <button
+                    type="submit"
+                    className="w-full border border-vang-kem bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-lg py-3 mt-4 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 cursor-pointer"
+                >
+                    Đặt Bàn Ngay
+                </button>
+            )}
+        </form>
+    );
+}
+
 export default function BookingModal() {
     const { isOpen, handleClose, modalRef, closeButtonRef } = useModal("open-booking");
-    const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
-
-    const resetAndClose = useCallback(() => {
-        setFallbackUrl(null);
-        handleClose();
-    }, [handleClose]);
 
     if (!isOpen) return null;
 
@@ -41,7 +166,7 @@ export default function BookingModal() {
             {/* Backdrop */}
             <div
                 className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-                onClick={resetAndClose}
+                onClick={handleClose}
                 aria-hidden="true"
             />
 
@@ -56,7 +181,7 @@ export default function BookingModal() {
                 {/* Close Button */}
                 <button
                     ref={closeButtonRef}
-                    onClick={resetAndClose}
+                    onClick={handleClose}
                     aria-label="Đóng"
                     className="absolute top-4 right-4 text-vang-kem/70 hover:text-vang-kem transition-colors focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none rounded-full p-1"
                 >
@@ -75,119 +200,7 @@ export default function BookingModal() {
                     </div>
                 </div>
 
-                {/* Form */}
-                <form className="px-6 pb-8 space-y-4" onSubmit={(e) => {
-                    e.preventDefault();
-
-                    const form = e.currentTarget;
-                    const name = (form.elements.namedItem("booking-name") as HTMLInputElement).value;
-                    const phone = (form.elements.namedItem("booking-phone") as HTMLInputElement).value;
-                    const date = (form.elements.namedItem("booking-date") as HTMLInputElement).value;
-                    const time = (form.elements.namedItem("booking-time") as HTMLInputElement).value;
-                    const guests = (form.elements.namedItem("booking-guests") as HTMLSelectElement).value;
-
-                    const message = `🍽️ ĐẶT BÀN - Cơm Tấm Má Tư\n\n👤 Tên: ${name}\n📞 SĐT: ${phone}\n📅 Ngày: ${date}\n⏰ Giờ: ${time}\n👥 Số khách: ${guests}`;
-
-                    const zaloUrl = `https://zalo.me/0772818172?text=${encodeURIComponent(message)}`;
-                    const win = window.open(zaloUrl, "_blank", "noopener,noreferrer");
-
-                    if (win) {
-                        resetAndClose();
-                    } else {
-                        // Popup was blocked — show fallback link
-                        setFallbackUrl(zaloUrl);
-                    }
-                }}>
-                    <BookingInputField
-                        id="booking-name"
-                        label="Họ và Tên"
-                        type="text"
-                        placeholder="Họ và Tên"
-                        required
-                        autoComplete="name"
-                        icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>}
-                    />
-
-                    <BookingInputField
-                        id="booking-phone"
-                        label="Số Điện Thoại"
-                        type="tel"
-                        placeholder="Số Điện Thoại"
-                        required
-                        autoComplete="tel"
-                        icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>}
-                    />
-
-                    <BookingInputField
-                        id="booking-date"
-                        label="Ngày đặt bàn"
-                        type="date"
-                        required
-                        icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>}
-                    />
-
-                    <BookingInputField
-                        id="booking-time"
-                        label="Giờ đặt bàn"
-                        type="time"
-                        required
-                        icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
-                    />
-
-                    <div>
-                        <label htmlFor="booking-guests" className="sr-only">Số Lượng Khách</label>
-                        <div className="relative">
-                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-vang-kem/60" aria-hidden="true">
-                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </span>
-                            <select
-                                id="booking-guests"
-                                required
-                                defaultValue=""
-                                className="w-full bg-black/10 border border-vang-kem/40 rounded-lg py-3 pl-10 pr-4 text-trang focus:outline-none focus:border-vang-kem focus-visible:ring-2 focus-visible:ring-vang-kem transition-colors appearance-none"
-                            >
-                                <option value="" disabled hidden className="bg-do-co">Số Lượng Khách</option>
-                                <option value="1" className="bg-do-co">1 Người</option>
-                                <option value="2" className="bg-do-co">2 Người</option>
-                                <option value="3" className="bg-do-co">3 Người</option>
-                                <option value="4" className="bg-do-co">4 Người</option>
-                                <option value="5-8" className="bg-do-co">5 - 8 Người</option>
-                                <option value="9+" className="bg-do-co">Trên 8 Người</option>
-                            </select>
-                            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-vang-kem/60 pointer-events-none" aria-hidden="true">
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-
-                    {fallbackUrl ? (
-                        <div className="mt-4 space-y-3">
-                            <p className="text-vang-kem/80 text-sm text-center">
-                                Trình duyệt đã chặn cửa sổ Zalo. Nhấn nút bên dưới để mở:
-                            </p>
-                            <a
-                                href={fallbackUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full border border-vang-kem bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-lg py-3 mt-2 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 cursor-pointer"
-                                onClick={() => resetAndClose()}
-                            >
-                                Mở Zalo để đặt bàn
-                            </a>
-                        </div>
-                    ) : (
-                        <button
-                            type="submit"
-                            className="w-full border border-vang-kem bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-lg py-3 mt-4 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 cursor-pointer"
-                        >
-                            Đặt Bàn Ngay
-                        </button>
-                    )}
-                </form>
+                <BookingForm onClose={handleClose} />
             </div>
         </div>
     );
