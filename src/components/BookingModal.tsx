@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useModal } from "@/lib/hooks";
 
 interface BookingInputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -27,7 +27,12 @@ const BookingInputField = ({ id, label, icon, ...props }: BookingInputFieldProps
 
 export default function BookingModal() {
     const { isOpen, handleClose, modalRef, closeButtonRef } = useModal("open-booking");
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
+
+    const resetAndClose = useCallback(() => {
+        setFallbackUrl(null);
+        handleClose();
+    }, [handleClose]);
 
     if (!isOpen) return null;
 
@@ -36,7 +41,7 @@ export default function BookingModal() {
             {/* Backdrop */}
             <div
                 className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-                onClick={handleClose}
+                onClick={resetAndClose}
                 aria-hidden="true"
             />
 
@@ -51,7 +56,7 @@ export default function BookingModal() {
                 {/* Close Button */}
                 <button
                     ref={closeButtonRef}
-                    onClick={handleClose}
+                    onClick={resetAndClose}
                     aria-label="Đóng"
                     className="absolute top-4 right-4 text-vang-kem/70 hover:text-vang-kem transition-colors focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none rounded-full p-1"
                 >
@@ -71,9 +76,8 @@ export default function BookingModal() {
                 </div>
 
                 {/* Form */}
-                <form className="px-6 pb-8 space-y-4" onSubmit={async (e) => {
+                <form className="px-6 pb-8 space-y-4" onSubmit={(e) => {
                     e.preventDefault();
-                    setIsSubmitting(true);
 
                     const form = e.currentTarget;
                     const name = (form.elements.namedItem("booking-name") as HTMLInputElement).value;
@@ -84,12 +88,15 @@ export default function BookingModal() {
 
                     const message = `🍽️ ĐẶT BÀN - Cơm Tấm Má Tư\n\n👤 Tên: ${name}\n📞 SĐT: ${phone}\n📅 Ngày: ${date}\n⏰ Giờ: ${time}\n👥 Số khách: ${guests}`;
 
-                    // Open Zalo chat with pre-filled message
                     const zaloUrl = `https://zalo.me/0772818172?text=${encodeURIComponent(message)}`;
-                    window.open(zaloUrl, "_blank", "noopener,noreferrer");
+                    const win = window.open(zaloUrl, "_blank", "noopener,noreferrer");
 
-                    setIsSubmitting(false);
-                    handleClose();
+                    if (win) {
+                        resetAndClose();
+                    } else {
+                        // Popup was blocked — show fallback link
+                        setFallbackUrl(zaloUrl);
+                    }
                 }}>
                     <BookingInputField
                         id="booking-name"
@@ -157,22 +164,29 @@ export default function BookingModal() {
                         </div>
                     </div>
 
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className={`w-full border border-vang-kem font-serif text-lg py-3 mt-4 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 ${isSubmitting
-                            ? 'bg-vang-kem/5 text-vang-kem/50 cursor-not-allowed'
-                            : 'bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co cursor-pointer'
-                            }`}
-                    >
-                        {isSubmitting && (
-                            <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                            </svg>
-                        )}
-                        {isSubmitting ? 'Đang gửi...' : 'Đặt Bàn Ngay'}
-                    </button>
+                    {fallbackUrl ? (
+                        <div className="mt-4 space-y-3">
+                            <p className="text-vang-kem/80 text-sm text-center">
+                                Trình duyệt đã chặn cửa sổ Zalo. Nhấn nút bên dưới để mở:
+                            </p>
+                            <a
+                                href={fallbackUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full border border-vang-kem bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-lg py-3 mt-2 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 cursor-pointer"
+                                onClick={() => resetAndClose()}
+                            >
+                                Mở Zalo để đặt bàn
+                            </a>
+                        </div>
+                    ) : (
+                        <button
+                            type="submit"
+                            className="w-full border border-vang-kem bg-vang-kem/10 text-vang-kem hover:bg-vang-kem hover:text-do-co font-serif text-lg py-3 mt-4 rounded-lg font-bold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            Đặt Bàn Ngay
+                        </button>
+                    )}
                 </form>
             </div>
         </div>
