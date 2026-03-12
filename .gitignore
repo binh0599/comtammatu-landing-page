@@ -49,3 +49,8 @@ skills-lock.json
 AGENTS.md
 .claude/
 tasks/
+
+# Editor & AI tool logs/design
+.vscode/
+.ui-design/
+CLAUDE.md

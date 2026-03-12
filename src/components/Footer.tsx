@@ -11,7 +11,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="md:col-span-4 flex flex-col items-start gap-6 pr-4">
                         <div className="flex flex-col gap-2">
-                            <h2 className="font-serif text-4xl md:text-5xl leading-tight font-bold text-transparent bg-clip-text bg-gradient-to-r from-vang-kem via-[#cb9b51] to-vang-kem drop-shadow-sm">
+                            <h2 className="font-serif text-4xl md:text-5xl leading-tight font-bold text-transparent bg-clip-text bg-gradient-to-r from-vang-kem via-vang-dong to-vang-kem drop-shadow-sm">
                                 Cơm Tấm<br />
                                 Má Tư
                             </h2>
@@ -52,7 +52,7 @@ export default function Footer() {
                         <h3 className="font-serif text-2xl mb-2 text-white">Liên hệ</h3>
 
                         <div className="flex items-start gap-3">
-                            <span className="text-[#cb9b51] mt-1 shrink-0" aria-hidden="true">
+                            <span className="text-vang-dong mt-1 shrink-0" aria-hidden="true">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" /></svg>
                             </span>
                             <span className="text-vang-kem/90 leading-relaxed text-[15px]">
@@ -61,7 +61,7 @@ export default function Footer() {
                         </div>
 
                         <div className="flex items-center gap-3">
-                            <span className="text-[#cb9b51] shrink-0" aria-hidden="true">
+                            <span className="text-vang-dong shrink-0" aria-hidden="true">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
                             </span>
                             <a href="tel:+84772818172" className="text-vang-kem/90 hover:text-white transition-colors text-[15px] font-medium tracking-wide focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none">
@@ -70,7 +70,7 @@ export default function Footer() {
                         </div>
 
                         <div className="flex items-start gap-3 mt-1">
-                            <span className="text-[#cb9b51] mt-0.5 shrink-0" aria-hidden="true">
+                            <span className="text-vang-dong mt-0.5 shrink-0" aria-hidden="true">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" /><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" /></svg>
                             </span>
                             <div className="flex flex-col text-[15px]">
@@ -100,7 +100,7 @@ export default function Footer() {
                             href="https://maps.app.goo.gl/6XZkDT6eHD553s639"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-center mt-3 text-sm text-[#cb9b51] hover:text-white transition-colors underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
+                            className="text-center mt-3 text-sm text-vang-dong hover:text-white transition-colors underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none"
                         >
                             Xem trên Google Maps &rarr;
                         </a>

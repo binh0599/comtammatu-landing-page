@@ -5,7 +5,7 @@ export default function About() {
     return (
         <div
             id="cau-chuyen"
-            className="h-[100dvh] w-full flex-shrink-0 snap-start snap-always flex flex-col relative bg-[#FDF8F0]"
+            className="h-[100dvh] w-full flex-shrink-0 snap-start snap-always flex flex-col relative bg-nen-kem-am"
         >
             {/* About Section - Super Clean Editorial Layout */}
             <section className="flex-1 min-h-0 relative overflow-hidden flex flex-col justify-center">
@@ -18,7 +18,7 @@ export default function About() {
 
                         {/* MOBILE-ONLY: Compact landscape image with badge (visible < sm) */}
                         <div className="w-full relative reveal-left z-20 sm:hidden">
-                            <div className="relative w-full h-36 rounded-2xl overflow-hidden shadow-lg border-2 border-[#cb9b51]/40">
+                            <div className="relative w-full h-36 rounded-2xl overflow-hidden shadow-lg border-2 border-vang-dong/40">
                                 <Image
                                     src="/images/space-2.webp"
                                     alt="Không gian Cơm tấm Má Tư"
@@ -32,8 +32,8 @@ export default function About() {
                                     <p className="font-sans text-vang-kem text-[10px] tracking-[0.2em] uppercase mt-0.5">Hương vị ký ức</p>
                                 </div>
                                 {/* Floating 30 Years Badge — mobile */}
-                                <div className="absolute top-2 right-3 w-16 h-16 bg-[#8B0000] rounded-full flex flex-col items-center justify-center shadow-xl border-[2px] border-[#FAF6F0]">
-                                    <p className="font-serif text-[#cb9b51] text-xl font-bold leading-none">30</p>
+                                <div className="absolute top-2 right-3 w-16 h-16 bg-do-co rounded-full flex flex-col items-center justify-center shadow-xl border-[2px] border-vang-nhat">
+                                    <p className="font-serif text-vang-dong text-xl font-bold leading-none">30</p>
                                     <p className="text-white/90 text-[6px] uppercase tracking-widest leading-[1.2] mt-0.5 text-center">Năm<br />Gia Truyền</p>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ export default function About() {
                             <div className="relative w-full h-full max-w-sm lg:max-w-md mx-auto flex items-end justify-center">
 
                                 {/* The Arch Image Mask */}
-                                <div className="relative w-4/5 h-full overflow-hidden shadow-2xl border-[4px] border-[#cb9b51]/60" style={{ borderRadius: '400px 400px 0 0' }}>
+                                <div className="relative w-4/5 h-full overflow-hidden shadow-2xl border-[4px] border-vang-dong/60" style={{ borderRadius: '400px 400px 0 0' }}>
                                     <Image
                                         src="/images/space-2.webp"
                                         alt="Không gian Cơm tấm Má Tư"
@@ -60,8 +60,8 @@ export default function About() {
                                 </div>
 
                                 {/* Floating 30 Years Badge */}
-                                <div className="absolute top-[10%] -right-4 md:-right-8 w-24 h-24 md:w-28 md:h-28 bg-[#8B0000] rounded-full flex flex-col items-center justify-center shadow-xl border-[2px] border-[#FAF6F0] z-30">
-                                    <p className="font-serif text-[#cb9b51] text-3xl md:text-4xl font-bold leading-none">30</p>
+                                <div className="absolute top-[10%] -right-4 md:-right-8 w-24 h-24 md:w-28 md:h-28 bg-do-co rounded-full flex flex-col items-center justify-center shadow-xl border-[2px] border-vang-nhat z-30">
+                                    <p className="font-serif text-vang-dong text-3xl md:text-4xl font-bold leading-none">30</p>
                                     <p className="text-white/90 text-[8px] md:text-[9px] uppercase tracking-widest leading-[1.2] mt-1 text-center">Năm<br />Gia Truyền</p>
                                 </div>
                             </div>
@@ -78,59 +78,59 @@ export default function About() {
                             <div className="relative z-10 flex flex-col min-h-0">
                                 {/* Eyebrow / Subhead */}
                                 <div className="flex items-center gap-3 mb-2 md:mb-4">
-                                    <div className="w-10 h-[1px] bg-[#cb9b51]" aria-hidden="true"></div>
-                                    <p className="text-[#8B0000] font-bold tracking-[0.25em] uppercase text-[10px] md:text-sm">
+                                    <div className="w-10 h-[1px] bg-vang-dong" aria-hidden="true"></div>
+                                    <p className="text-do-co font-bold tracking-[0.25em] uppercase text-[10px] md:text-sm">
                                         Câu Chuyện
                                     </p>
                                 </div>
 
                                 {/* Main Title */}
-                                <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#2a231d] mb-3 md:mb-6 leading-[1.05] drop-shadow-sm [text-wrap:balance]">
+                                <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-nau-heading mb-3 md:mb-6 leading-[1.05] drop-shadow-sm [text-wrap:balance]">
                                     Hơn Cả Một <br />
-                                    <span className="block text-right text-[#8B0000] italic font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Đĩa Cơm Tấm</span>
+                                    <span className="block text-right text-do-co italic font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Đĩa Cơm Tấm</span>
                                 </h2>
 
                                 {/* Editorial Paragraphs */}
-                                <div className="space-y-3 md:space-y-4 text-[#4a4238] font-sans text-xs md:text-sm leading-snug md:leading-relaxed text-justify max-w-lg shrink">
+                                <div className="space-y-3 md:space-y-4 text-nau-text font-sans text-xs md:text-sm leading-snug md:leading-relaxed text-justify max-w-lg shrink">
                                     <p>
-                                        Sinh ra từ gian bếp nhỏ vương màu khói lửa Sài Gòn xưa, <strong className="text-[#8B0000] font-semibold">Cơm Tấm Má Tư</strong> không đơn thuần là một món ăn, mà là sợi dây vô hình kết nối quá khứ và hiện tại. Lửa lò nướng sườn của Má chưa bao giờ tắt, vẫn vẹn nguyên công thức ướp bí truyền suốt ba thập kỷ để mang đến đĩa <strong className="text-[#8B0000] font-semibold">cơm tấm ngon nhất Bà Rịa</strong>.
+                                        Sinh ra từ gian bếp nhỏ vương màu khói lửa Sài Gòn xưa, <strong className="text-do-co font-semibold">Cơm Tấm Má Tư</strong> không đơn thuần là một món ăn, mà là sợi dây vô hình kết nối quá khứ và hiện tại. Lửa lò nướng sườn của Má chưa bao giờ tắt, vẫn vẹn nguyên công thức ướp bí truyền suốt ba thập kỷ để mang đến đĩa <strong className="text-do-co font-semibold">cơm tấm ngon nhất Bà Rịa</strong>.
                                     </p>
                                     <p>
-                                        Từng hạt tấm tơi xốp quấn quýt bên miếng sườn nướng than hoa cháy cạnh, tươm mỡ vàng óng từ nguồn <span className="font-semibold text-[#8B0000]">thịt tươi 100%</span>. Miếng chả trứng chưng thịt đẫm vị, hòa quyện cùng thìa nước mắm chua ngọt sánh dẻo pha theo một <span className="italic font-serif text-[#cb9b51] font-bold">tỷ lệ vàng</span>.
+                                        Từng hạt tấm tơi xốp quấn quýt bên miếng sườn nướng than hoa cháy cạnh, tươm mỡ vàng óng từ nguồn <span className="font-semibold text-do-co">thịt tươi 100%</span>. Miếng chả trứng chưng thịt đẫm vị, hòa quyện cùng thìa nước mắm chua ngọt sánh dẻo pha theo một <span className="italic font-serif text-vang-dong font-bold">tỷ lệ vàng</span>.
                                     </p>
                                     <p className="hidden sm:block">
-                                        Đến với Má Tư, bạn không chỉ thưởng thức trọn vẹn tinh hoa ẩm thực đường phố của một quán <strong className="text-[#8B0000]">Cơm tấm Vũng Tàu</strong>, mà còn tìm về một góc bình yên, nơi bữa cơm ân cần, ấm áp như tay Mẹ nấu.
+                                        Đến với Má Tư, bạn không chỉ thưởng thức trọn vẹn tinh hoa ẩm thực đường phố của một quán <strong className="text-do-co">Cơm tấm Vũng Tàu</strong>, mà còn tìm về một góc bình yên, nơi bữa cơm ân cần, ấm áp như tay Mẹ nấu.
                                     </p>
                                 </div>
 
                                 {/* Story Footer: Founders & Stats */}
-                                <div className="mt-8 pt-5 border-t border-[#cb9b51]/30 flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-2">
+                                <div className="mt-8 pt-5 border-t border-vang-dong/30 flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-2">
                                     {/* Founders */}
                                     <div className="flex flex-col">
-                                        <span className="text-[9px] text-[#cb9b51] uppercase tracking-[0.25em] font-bold mb-1">
+                                        <span className="text-[9px] text-vang-dong uppercase tracking-[0.25em] font-bold mb-1">
                                             Đội ngũ sáng lập
                                         </span>
-                                        <p className="font-serif text-xl sm:text-2xl text-[#8B0000] tracking-wide">
-                                            <span className="font-bold">Tài</span> <span className="text-[#cb9b51]/70 mx-1.5 italic font-light">&amp;</span>
-                                            <span className="font-bold">Bình</span> <span className="text-[#cb9b51]/70 mx-1.5 italic font-light">&amp;</span><br className="sm:hidden" />
-                                            <span className="font-bold">Hoàng</span> <span className="text-[#cb9b51]/70 mx-1.5 italic font-light">&amp;</span>
+                                        <p className="font-serif text-xl sm:text-2xl text-do-co tracking-wide">
+                                            <span className="font-bold">Tài</span> <span className="text-vang-dong/70 mx-1.5 italic font-light">&amp;</span>
+                                            <span className="font-bold">Bình</span> <span className="text-vang-dong/70 mx-1.5 italic font-light">&amp;</span><br className="sm:hidden" />
+                                            <span className="font-bold">Hoàng</span> <span className="text-vang-dong/70 mx-1.5 italic font-light">&amp;</span>
                                             <span className="font-bold">Hậu</span>
                                         </p>
-                                        <p className="mt-2 text-[#4a4238] font-sans text-[10px] sm:text-[11px] leading-[1.6] max-w-[280px] sm:max-w-xs italic opacity-95">
-                                            "Khởi nghiệp bằng chữ Tài, giữ vững bằng chữ Bình, tỏa sáng thời kỳ Hoàng Kim và gặt hái phúc đức về Hậu."
+                                        <p className="mt-2 text-nau-text font-sans text-[10px] sm:text-[11px] leading-[1.6] max-w-[280px] sm:max-w-xs italic opacity-95">
+                                            &ldquo;Khởi nghiệp bằng chữ Tài, giữ vững bằng chữ Bình, tỏa sáng thời kỳ Hoàng Kim và gặt hái phúc đức về Hậu.&rdquo;
                                         </p>
                                     </div>
 
                                     {/* Stats */}
                                     <div className="flex items-center gap-5 sm:gap-6">
                                         <div className="flex flex-col sm:items-end">
-                                            <span className="text-3xl sm:text-4xl font-serif text-[#2a231d] font-bold leading-none tracking-tight">01</span>
-                                            <span className="text-[9px] text-[#8B0000] uppercase tracking-widest font-semibold mt-1">Chi nhánh</span>
+                                            <span className="text-3xl sm:text-4xl font-serif text-nau-heading font-bold leading-none tracking-tight">01</span>
+                                            <span className="text-[9px] text-do-co uppercase tracking-widest font-semibold mt-1">Chi nhánh</span>
                                         </div>
-                                        <div className="w-[1px] h-10 bg-[#cb9b51]/40"></div>
+                                        <div className="w-[1px] h-10 bg-vang-dong/40"></div>
                                         <div className="flex flex-col">
-                                            <span className="text-3xl sm:text-4xl font-serif text-[#2a231d] font-bold leading-none tracking-tight">10<span className="text-[#cb9b51] text-2xl sm:text-3xl ml-0.5">+</span></span>
-                                            <span className="text-[9px] text-[#8B0000] uppercase tracking-widest font-semibold mt-1">Nhân sự</span>
+                                            <span className="text-3xl sm:text-4xl font-serif text-nau-heading font-bold leading-none tracking-tight">10<span className="text-vang-dong text-2xl sm:text-3xl ml-0.5">+</span></span>
+                                            <span className="text-[9px] text-do-co uppercase tracking-widest font-semibold mt-1">Nhân sự</span>
                                         </div>
                                     </div>
                                 </div>

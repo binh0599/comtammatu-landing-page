@@ -1,15 +1,20 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+
+// Module-level detection (runs once when module loads, client-only)
+const isTouchDevice =
+    typeof window !== "undefined" &&
+    (window.matchMedia("(pointer: coarse)").matches ||
+        "ontouchstart" in window ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
 export default function CustomCursor() {
     const pathname = usePathname();
     const dotRef = useRef<HTMLDivElement>(null);
     const ringRef = useRef<HTMLDivElement>(null);
     const requestRef = useRef<number>(0);
-
-    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     // Use Refs to bypass React state and avoid re-renders on mousemove
     const mouseRef = useRef({ x: -100, y: -100 });
@@ -19,14 +24,7 @@ export default function CustomCursor() {
     const hoveredRectRef = useRef<{ left: number; top: number; width: number; height: number; borderRadius: string } | null>(null);
 
     useEffect(() => {
-        if (
-            window.matchMedia("(pointer: coarse)").matches ||
-            "ontouchstart" in window ||
-            window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ) {
-            setIsTouchDevice(true);
-            return;
-        }
+        if (isTouchDevice) return;
 
         const updateCursor = () => {
             if (dotRef.current && ringRef.current) {

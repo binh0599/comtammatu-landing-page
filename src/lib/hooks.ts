@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 /* ─── Intersection Observer Hook ─── */
 export function useInView(threshold = 0.15) {
@@ -32,6 +32,15 @@ export function useModal(openEventName = "open-modal") {
     const modalRef = useRef<HTMLDivElement>(null);
     const triggerRef = useRef<Element | null>(null);
     const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+    const handleClose = useCallback(() => {
+        setIsOpen(false);
+        requestAnimationFrame(() => {
+            if (triggerRef.current instanceof HTMLElement) {
+                triggerRef.current.focus();
+            }
+        });
+    }, []);
 
     useEffect(() => {
         const handleOpen = () => {
@@ -71,18 +80,7 @@ export function useModal(openEventName = "open-modal") {
 
         document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isOpen]);
-
-    const handleClose = () => {
-        setIsOpen(false);
-        requestAnimationFrame(() => {
-            if (triggerRef.current instanceof HTMLElement) {
-                triggerRef.current.focus();
-            }
-        });
-    };
+    }, [isOpen, handleClose]);
 
     return { isOpen, handleClose, modalRef, closeButtonRef };
 }
-

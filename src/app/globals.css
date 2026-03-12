@@ -40,10 +40,16 @@
   --color-nau-dam: #3E2723;
   --color-vang-kem: #D4A574;
   --color-vang-nhat: #F5E6D3;
+  --color-vang-dong: #cb9b51;
   --color-xanh-la: #2E7D32;
   --color-trang: #FAFAFA;
   --color-den: #1A1A1A;
   --color-den-nhat: #2D2D2D;
+
+  /* Editorial/Content Colors */
+  --color-nen-kem-am: #FDF8F0;
+  --color-nau-text: #4a4238;
+  --color-nau-heading: #2a231d;
 
   /* Semantic Colors */
   --color-success: #2E7D32;
@@ -68,10 +74,16 @@
   --color-nau-dam: var(--color-nau-dam);
   --color-vang-kem: var(--color-vang-kem);
   --color-vang-nhat: var(--color-vang-nhat);
+  --color-vang-dong: var(--color-vang-dong);
   --color-xanh-la: var(--color-xanh-la);
   --color-trang: var(--color-trang);
   --color-den: var(--color-den);
   --color-den-nhat: var(--color-den-nhat);
+
+  /* Editorial/Content Colors */
+  --color-nen-kem-am: var(--color-nen-kem-am);
+  --color-nau-text: var(--color-nau-text);
+  --color-nau-heading: var(--color-nau-heading);
 
   /* Semantic Colors */
   --color-success: var(--color-success);

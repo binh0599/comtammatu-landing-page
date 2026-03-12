@@ -2,27 +2,40 @@ import Image from "next/image";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
 import HeroButtons from "@/components/HeroButtons";
 
-const CornerDecoration = ({ className }: { className: string }) => (
-    <svg aria-hidden="true" className={`absolute w-8 h-8 md:w-16 md:h-16 text-[#cb9b51] pointer-events-none ${className}`} viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M54,0 H0 V54" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
-        <path d="M42,0 V12 H12 V42 H0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
-        <path d="M0,30 H24 V0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
-        <path d="M30,0 V24 H0" className={className.includes('top') && className.includes('left') ? 'block' : 'hidden'} />
+type Corner = "top-left" | "top-right" | "bottom-left" | "bottom-right";
 
-        <path d="M0,0 H54 V54" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
-        <path d="M12,0 V12 H42 V42 H54" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
-        <path d="M54,30 H30 V0" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
-        <path d="M24,0 V24 H54" className={className.includes('top') && className.includes('right') ? 'block' : 'hidden'} />
+const cornerPaths: Record<Corner, string[]> = {
+    "top-left": [
+        "M54,0 H0 V54",
+        "M42,0 V12 H12 V42 H0",
+        "M0,30 H24 V0",
+        "M30,0 V24 H0",
+    ],
+    "top-right": [
+        "M0,0 H54 V54",
+        "M12,0 V12 H42 V42 H54",
+        "M54,30 H30 V0",
+        "M24,0 V24 H54",
+    ],
+    "bottom-left": [
+        "M54,54 H0 V0",
+        "M42,54 V42 H12 V12 H0",
+        "M0,24 H24 V54",
+        "M30,54 V30 H0",
+    ],
+    "bottom-right": [
+        "M0,54 H54 V0",
+        "M12,54 V42 H42 V12 H54",
+        "M54,24 H30 V54",
+        "M24,54 V30 H54",
+    ],
+};
 
-        <path d="M54,54 H0 V0" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
-        <path d="M42,54 V42 H12 V12 H0" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
-        <path d="M0,24 H24 V54" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
-        <path d="M30,54 V30 H0" className={className.includes('bottom') && className.includes('left') ? 'block' : 'hidden'} />
-
-        <path d="M0,54 H54 V0" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
-        <path d="M12,54 V42 H42 V12 H54" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
-        <path d="M54,24 H30 V54" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
-        <path d="M24,54 V30 H54" className={className.includes('bottom') && className.includes('right') ? 'block' : 'hidden'} />
+const CornerDecoration = ({ className, corner }: { className: string; corner: Corner }) => (
+    <svg aria-hidden="true" className={`absolute w-8 h-8 md:w-16 md:h-16 text-vang-dong pointer-events-none ${className}`} viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.5">
+        {cornerPaths[corner].map((d, i) => (
+            <path key={i} d={d} />
+        ))}
     </svg>
 );
 
@@ -56,37 +69,37 @@ export default function Hero() {
                 {/* Outer Ornate Frame */}
                 {/* Remove the generic full border, use custom borders */}
                 <div className="relative w-full max-h-[85vh] flex flex-col items-center justify-center py-8 md:py-12 px-4 md:px-10 bg-black/20 backdrop-blur-sm rounded-sm
-                    border-l-[1.5px] border-r-[1.5px] border-[#cb9b51]/50
+                    border-l-[1.5px] border-r-[1.5px] border-vang-dong/50
                 ">
                     {/* TOP Custom Border Wrapper: Uses Flexbox to auto-fill space left and right of the Logo cutout */}
                     <div className="absolute top-0 left-0 w-full flex items-start justify-center pointer-events-none z-10" aria-hidden="true">
                         {/* Left Line */}
-                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mt-[0px]"></div>
+                        <div className="flex-1 h-[1.5px] bg-vang-dong/50 mt-[0px]"></div>
                         {/* Center Semi-Circle Cutout wrapping under Logo */}
-                        <div className="w-[80px] h-[40px] md:w-[124px] md:h-[62px] xl:w-[164px] xl:h-[82px] border-b-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#cb9b51]/50 rounded-b-full shrink-0"></div>
+                        <div className="w-[80px] h-[40px] md:w-[124px] md:h-[62px] xl:w-[164px] xl:h-[82px] border-b-[1.5px] border-l-[1.5px] border-r-[1.5px] border-vang-dong/50 rounded-b-full shrink-0"></div>
                         {/* Right Line */}
-                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mt-[0px]"></div>
+                        <div className="flex-1 h-[1.5px] bg-vang-dong/50 mt-[0px]"></div>
                     </div>
 
                     {/* BOTTOM Custom Border Wrapper: Uses Flexbox to auto-fill space left and right of the Button block */}
                     <div className="absolute bottom-0 left-0 w-full flex items-end justify-center pointer-events-none z-10 translate-y-[1.5px]" aria-hidden="true">
                         {/* Left Line */}
-                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mb-[0px]"></div>
+                        <div className="flex-1 h-[1.5px] bg-vang-dong/50 mb-[0px]"></div>
                         {/* Center Box Cutout wrapping over Buttons */}
-                        <div className="w-[280px] md:w-[470px] h-[30px] md:h-[45px] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#cb9b51]/50 rounded-t-lg shrink-0"></div>
+                        <div className="w-[280px] md:w-[470px] h-[30px] md:h-[45px] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-vang-dong/50 rounded-t-lg shrink-0"></div>
                         {/* Right Line */}
-                        <div className="flex-1 h-[1.5px] bg-[#cb9b51]/50 mb-[0px]"></div>
+                        <div className="flex-1 h-[1.5px] bg-vang-dong/50 mb-[0px]"></div>
                     </div>
 
                     {/* Corners */}
-                    <CornerDecoration className="-top-[1.5px] -left-[1.5px]" />
-                    <CornerDecoration className="-top-[1.5px] -right-[1.5px]" />
-                    <CornerDecoration className="-bottom-[1.5px] -left-[1.5px]" />
-                    <CornerDecoration className="-bottom-[1.5px] -right-[1.5px]" />
+                    <CornerDecoration className="-top-[1.5px] -left-[1.5px]" corner="top-left" />
+                    <CornerDecoration className="-top-[1.5px] -right-[1.5px]" corner="top-right" />
+                    <CornerDecoration className="-bottom-[1.5px] -left-[1.5px]" corner="bottom-left" />
+                    <CornerDecoration className="-bottom-[1.5px] -right-[1.5px]" corner="bottom-right" />
 
                     {/* Center Logo overlaps top border perfectly fitted into the semi-circle */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center z-20">
-                        <div className="relative w-16 h-16 md:w-24 md:h-24 xl:w-32 xl:h-32 rounded-full border-[2px] md:border-[3px] border-[#cb9b51] shadow-2xl overflow-hidden animate-scale-in bg-den p-1">
+                        <div className="relative w-16 h-16 md:w-24 md:h-24 xl:w-32 xl:h-32 rounded-full border-[2px] md:border-[3px] border-vang-dong shadow-2xl overflow-hidden animate-scale-in bg-den p-1">
                             <Image
                                 src="/images/logo.webp"
                                 alt="Logo Cơm tấm Má Tư"
@@ -102,7 +115,7 @@ export default function Hero() {
                     <div className="flex flex-col items-center justify-center flex-1 min-h-0 py-2 w-full">
                         {/* Title */}
                         <h1 className="font-serif text-3xl md:text-4xl lg:text-6xl text-trang mt-2 md:mt-4 lg:mt-8 mb-2 md:mb-4 lg:mb-4 leading-[1.1] animate-fade-in-up tracking-wider drop-shadow-xl text-center text-balance flex flex-col items-center">
-                            <span className="text-[#cb9b51] animate-shimmer font-medium [text-shadow:0_4px_8px_rgba(0,0,0,0.8)] [text-wrap:balance]">Cơm Tấm Má Tư</span>
+                            <span className="text-vang-dong animate-shimmer font-medium [text-shadow:0_4px_8px_rgba(0,0,0,0.8)] [text-wrap:balance]">Cơm Tấm Má Tư</span>
                             <span className="sr-only"> - Cơm tấm ngon nhất Bà Rịa, Vũng Tàu. Thịt tươi 100%.</span>
                         </h1>
 

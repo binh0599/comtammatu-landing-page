@@ -51,7 +51,7 @@ export const jsonLd = [
         aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5",
-            reviewCount: "50000",
+            reviewCount: "150",
         },
     },
     {

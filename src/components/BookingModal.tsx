@@ -74,10 +74,21 @@ export default function BookingModal() {
                 <form className="px-6 pb-8 space-y-4" onSubmit={async (e) => {
                     e.preventDefault();
                     setIsSubmitting(true);
-                    // Simulate async submission
-                    await new Promise(resolve => setTimeout(resolve, 1200));
+
+                    const form = e.currentTarget;
+                    const name = (form.elements.namedItem("booking-name") as HTMLInputElement).value;
+                    const phone = (form.elements.namedItem("booking-phone") as HTMLInputElement).value;
+                    const date = (form.elements.namedItem("booking-date") as HTMLInputElement).value;
+                    const time = (form.elements.namedItem("booking-time") as HTMLInputElement).value;
+                    const guests = (form.elements.namedItem("booking-guests") as HTMLSelectElement).value;
+
+                    const message = `🍽️ ĐẶT BÀN - Cơm Tấm Má Tư\n\n👤 Tên: ${name}\n📞 SĐT: ${phone}\n📅 Ngày: ${date}\n⏰ Giờ: ${time}\n👥 Số khách: ${guests}`;
+
+                    // Open Zalo chat with pre-filled message
+                    const zaloUrl = `https://zalo.me/0772818172?text=${encodeURIComponent(message)}`;
+                    window.open(zaloUrl, "_blank", "noopener,noreferrer");
+
                     setIsSubmitting(false);
-                    alert("Đặt bàn thành công!");
                     handleClose();
                 }}>
                     <BookingInputField
