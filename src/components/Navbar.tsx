@@ -33,7 +33,7 @@ export default function Navbar() {
                     className={`rounded-full absolute top-1/2 -translate-y-1/2 flex items-center group z-10 transition-all duration-500 ease-in-out focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none ${scrolled ? "left-2 md:left-4" : "-left-2 md:-left-6"
                         }`}
                 >
-                    <div className={`relative rounded-full border-[#cb9b51] group-hover:border-white transition-all duration-500 ease-in-out shadow-xl overflow-hidden bg-den ${scrolled ? "w-10 h-10 md:w-12 md:h-12 border-[1.5px]" : "w-20 h-20 md:w-28 md:h-28 border-[3px]"
+                    <div className={`relative rounded-full border-vang-dong group-hover:border-white transition-all duration-500 ease-in-out shadow-xl overflow-hidden bg-den ${scrolled ? "w-10 h-10 md:w-12 md:h-12 border-[1.5px]" : "w-20 h-20 md:w-28 md:h-28 border-[3px]"
                         }`}>
                         <Image
                             src="/images/logo.webp"
@@ -66,7 +66,7 @@ export default function Navbar() {
                 <div className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 hidden md:block z-10">
                     <button
                         onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))}
-                        className={`bg-transparent border border-[#cb9b51] text-[#D0A458] rounded-full font-semibold tracking-widest transition-all duration-500 ease-in-out hover:bg-[#cb9b51] hover:text-den focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none ${scrolled ? "px-4 lg:px-6 py-1.5 lg:py-2 text-[9px] lg:text-[10px]" : "px-6 lg:px-8 py-2 lg:py-2.5 text-[10px] lg:text-xs"
+                        className={`bg-transparent border border-vang-dong text-vang-dong rounded-full font-semibold tracking-widest transition-all duration-500 ease-in-out hover:bg-vang-dong hover:text-den focus-visible:ring-2 focus-visible:ring-vang-kem focus-visible:outline-none ${scrolled ? "px-4 lg:px-6 py-1.5 lg:py-2 text-[9px] lg:text-[10px]" : "px-6 lg:px-8 py-2 lg:py-2.5 text-[10px] lg:text-xs"
                             }`}
                     >
                         ĐẶT BÀN
