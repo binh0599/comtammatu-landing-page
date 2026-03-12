@@ -43,7 +43,7 @@ export default function Hero() {
     return (
         <section
             id="trang-chu"
-            className="relative h-[100dvh] w-full flex-shrink-0 snap-start snap-always flex items-center justify-center overflow-hidden bg-[#1a1a1a]"
+            className="relative h-[100dvh] w-full flex-shrink-0 snap-start snap-always flex items-center justify-center overflow-hidden bg-den"
         >
             {/* Background */}
             <div className="absolute inset-0 z-0">
